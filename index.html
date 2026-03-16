@@ -74,7 +74,7 @@
     <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/agentic-security/2026/03/16/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2026-03-16T02:21:24.733Z" itemprop="datePublished">2026-03-16</time>
+  <time class="dt-published" datetime="2026-03-16T05:08:21.096Z" itemprop="datePublished">2026-03-16</time>
 </a>
     
   </div>
@@ -122,6 +122,997 @@
 
 
   
+    <article id="post-20260107 Protect AI 社区 owasp-agentic-top-10-survival-guide" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/agentic-security/2026/03/16/20260107%20Protect%20AI%20%E7%A4%BE%E5%8C%BA%20owasp-agentic-top-10-survival-guide/" class="article-date">
+  <time class="dt-published" datetime="2026-03-16T02:50:00.000Z" itemprop="datePublished">2026-03-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/agentic-security/categories/agentic-security/">agentic-security</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/agentic-security/2026/03/16/20260107%20Protect%20AI%20%E7%A4%BE%E5%8C%BA%20owasp-agentic-top-10-survival-guide/">🤖 OWASP Agentic AI Top 10 生存指南 · 解析版 🛡️</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>PDF来源：<a target="_blank" rel="noopener" href="https://www.paloaltonetworks.com/resources/ebooks/owasp-agentic-top-10-survival-guide">OWASP Agentic Top 10 Survival Guide - Palo Alto Networks</a></p>
+<p>发布时间：2026年1月7日</p>
+<p>由 <strong>Palo Alto Networks</strong>（Prisma AIRS 团队）发布📚，发布时间为2026年1月。这是一份针对企业安全领导者（CISO）的实战手册，旨在帮助组织理解和应对**智能体 AI（Agentic AI）**带来的新型安全风险。</p>
+<p>作者强调：</p>
+<ul>
+<li>Agentic AI 已从实验阶段进入企业核心工作流</li>
+<li>风险不再是“单点漏洞”，而是<strong>行为驱动的系统性失败模式</strong></li>
+<li>传统安全措施（权限、API 网关、身份控制）已不足以应对</li>
+<li>需要新的“运行时治理层”来监控意图、计划、记忆、工具调用等行为</li>
+</ul>
+<hr>
+<h2 id="🌟-一、核心背景：为什么需要-Agentic-AI-安全框架？"><a href="#🌟-一、核心背景：为什么需要-Agentic-AI-安全框架？" class="headerlink" title="🌟 一、核心背景：为什么需要 Agentic AI 安全框架？"></a>🌟 一、核心背景：为什么需要 Agentic AI 安全框架？</h2><h3 id="1-从-LLM-到-Agentic-AI-的风险跃迁"><a href="#1-从-LLM-到-Agentic-AI-的风险跃迁" class="headerlink" title="1. 从 LLM 到 Agentic AI 的风险跃迁"></a>1. 从 LLM 到 Agentic AI 的风险跃迁</h3><blockquote>
+<p>Agentic AI 不只是生成文本，而是：</p>
+<ul>
+<li><strong>规划（plan）</strong></li>
+<li><strong>检索信息（retrieve）</strong></li>
+<li><strong>调用工具（invoke tools）</strong></li>
+<li><strong>保持记忆（memory）</strong></li>
+<li><strong>执行动作（act）</strong></li>
+</ul>
+<p>因此风险从“输出安全”转向“行为安全”。</p>
+</blockquote>
+<p>传统的大语言模型（LLM）安全主要关注<strong>提示层攻击</strong>（如提示注入、数据泄露），但 Agentic AI 系统具有<strong>自主规划、工具调用、记忆维持和多步骤执行</strong>能力，风险范式发生了根本转变：</p>
+<ul>
+<li><strong>风险点转移</strong>：从单一的漏洞转向<strong>行为驱动</strong>的故障模式</li>
+<li><strong>攻击面扩大</strong>：agent与工具、数据、身份系统及其他agent交互时产生的系统性风险</li>
+<li><strong>治理难点</strong>：传统的身份控制、API 网关和静态权限无法约束动态自治系统</li>
+</ul>
+<h3 id="2-OWASP-Agentic-Top-10-的定位"><a href="#2-OWASP-Agentic-Top-10-的定位" class="headerlink" title="2. OWASP Agentic Top 10 的定位"></a>2. OWASP Agentic Top 10 的定位</h3><ul>
+<li><strong>ASI</strong> &#x3D; Agentic System Intelligence（或 Agentic Security Issues）</li>
+<li>与 LLM Top 10 的区别：不仅关注输入输出，更关注<strong>意图治理、规划、记忆和工具使用</strong>🎯</li>
+</ul>
+<hr>
+<h2 id="🔍-二、十大威胁分类解析（ASI01-ASI10）"><a href="#🔍-二、十大威胁分类解析（ASI01-ASI10）" class="headerlink" title="🔍 二、十大威胁分类解析（ASI01-ASI10）"></a>🔍 二、十大威胁分类解析（ASI01-ASI10）</h2><p>将十大威胁分为三个逻辑层面：</p>
+<h3 id="📥-第一层：输入与上下文安全（防止意图被操纵）"><a href="#📥-第一层：输入与上下文安全（防止意图被操纵）" class="headerlink" title="📥 第一层：输入与上下文安全（防止意图被操纵）"></a><strong>📥 第一层：输入与上下文安全</strong>（防止意图被操纵）</h3><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>威胁名称</th>
+<th>核心逻辑</th>
+<th>典型攻击手法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>ASI01</strong></td>
+<td><strong>Agent Goal Hijack</strong><br>（agent目标劫持）</td>
+<td>攻击者通过操纵提示或上下文，使agent偏离既定目标</td>
+<td>角色转换攻击、目标重定向、虚假紧急性诱导</td>
+</tr>
+<tr>
+<td><strong>ASI06</strong></td>
+<td><strong>Memory and Context Poisoning</strong><br>（记忆与上下文投毒）</td>
+<td>污染 RAG 存储、记忆或上下文窗口，植入虚假知识</td>
+<td>在文档中隐藏恶意指令，长期影响agent决策</td>
+</tr>
+<tr>
+<td><strong>ASI09</strong></td>
+<td><strong>Human-Agent Trust Exploitation</strong><br>（人机信任利用）</td>
+<td>利用人类对agent的信任，诱导批准有害操作</td>
+<td>情感操纵、欺骗性解释、伪造理由诱导用户确认🥺</td>
+</tr>
+</tbody></table>
+<p><strong>关键缓解策略</strong>：</p>
+<ul>
+<li>输入归一化：确保指令不冲突，锚定明确的任务定义</li>
+<li>记忆审查：所有写入长期记忆的内容必须经过安全审查</li>
+<li>人机交互保护：高风险操作需独立验证，而非仅依赖agent建议</li>
+</ul>
+<hr>
+<h3 id="🛠️第二层：工具与数据治理（控制外部交互）"><a href="#🛠️第二层：工具与数据治理（控制外部交互）" class="headerlink" title="🛠️第二层：工具与数据治理（控制外部交互）"></a><strong>🛠️第二层：工具与数据治理</strong>（控制外部交互）</h3><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>威胁名称</th>
+<th>核心逻辑</th>
+<th>典型攻击手法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>ASI02</strong></td>
+<td><strong>Tool Misuse and Exploitation</strong><br>（工具误用与滥用）</td>
+<td>agent被诱导以错误上下文或恶意参数调用合法工具（API、脚本、系统）</td>
+<td>通过提示操纵调用敏感 API、数据外泄（也包含用管理员权限删除🗑️所有文件）</td>
+</tr>
+<tr>
+<td><strong>ASI04</strong></td>
+<td><strong>Agentic Supply Chain Vulnerabilities</strong><br>（agent供应链漏洞）</td>
+<td>运行时加载的工具、插件、模型被污染（篡改）</td>
+<td>恶意 MCP（Model Context Protocol）服务器、投毒的工具定义</td>
+</tr>
+<tr>
+<td><strong>ASI05</strong></td>
+<td><strong>Unexpected Code Execution (RCE)</strong><br>（意外代码执行）</td>
+<td>agent生成的输出被直接执行，导致系统被控制（输出触发真实系统命令或操作）</td>
+<td>诱导生成恶意代码、反序列化攻击（如💥写脚本格式化硬盘）</td>
+</tr>
+</tbody></table>
+<p><strong>关键缓解策略</strong>：</p>
+<ul>
+<li><strong>最小权限工具访问</strong>：明确允许列表，限制工具使用范围（如只读访问）</li>
+<li><strong>供应链验证</strong>：维护实时库存，扫描工具模式中的恶意指令</li>
+<li><strong>执行前检查</strong>：高风险动作需人工批准或自动沙箱检测⏸️</li>
+</ul>
+<hr>
+<h3 id="⚡第三层：行为与运行时安全（监控自治逻辑）"><a href="#⚡第三层：行为与运行时安全（监控自治逻辑）" class="headerlink" title="⚡第三层：行为与运行时安全（监控自治逻辑）"></a><strong>⚡第三层：行为与运行时安全</strong>（监控自治逻辑）</h3><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>威胁名称</th>
+<th>核心逻辑</th>
+<th>典型攻击手法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>ASI03</strong></td>
+<td><strong>Identity and Privilege Abuse</strong><br>（身份与权限滥用）</td>
+<td>agent权限过大或权限漂移导致越权行为</td>
+<td>权限漂移（eg.今天读文件，明天删数据库 📈）、缓存凭证继承、跨agent权限提升</td>
+</tr>
+<tr>
+<td><strong>ASI07</strong></td>
+<td><strong>Insecure Inter-Agent Communication</strong><br>（不安全的agent间通信）</td>
+<td>多agent系统中，agent间通信缺乏加密&#x2F;认证，传递恶意指令</td>
+<td>消息篡改、重放攻击、agent间 collusion🤫</td>
+</tr>
+<tr>
+<td><strong>ASI08</strong></td>
+<td><strong>Cascading Failures</strong><br>（级联故障）</td>
+<td>单点故障在连锁反应中放大（自主链式行为失控），导致系统性风险</td>
+<td>无限循环(“我在计划如何计划我的计划…” 🔄)、计划失控、资源耗尽</td>
+</tr>
+<tr>
+<td><strong>ASI10</strong></td>
+<td><strong>Rogue Agents</strong><br>（恶意&#x2F;失控agent）</td>
+<td>agent被入侵或累积错误后自主偏离预期功能，成为内部威胁</td>
+<td>C2 通信（eg.自己联系坏服务器🦹）、自我复制、工作流程劫持</td>
+</tr>
+</tbody></table>
+<p><strong>关键缓解策略</strong>：</p>
+<ul>
+<li><strong>动态权限治理</strong>：持续审查令牌和角色，自动撤销过期权限</li>
+<li><strong>行为基线监控</strong>：定义”正常”行为模式，检测偏离（如异常工具调用频率）🚨</li>
+<li><strong>断路器机制</strong>：预设自动停止条件（kill switch），防止级联失控</li>
+<li><strong>agent隔离</strong>：具备即时切断agent访问的能力，防止横向移动（如接触其他小伙伴 🏥）</li>
+</ul>
+<hr>
+<h2 id="📋三、企业自评框架（Readiness-Assessment）"><a href="#📋三、企业自评框架（Readiness-Assessment）" class="headerlink" title="📋三、企业自评框架（Readiness Assessment）"></a>📋三、企业自评框架（Readiness Assessment）</h2><p>提供了一个<strong>三部分自评问卷</strong>，帮助企业评估当前防护水平：</p>
+<h3 id="Part-1-输入与上下文安全"><a href="#Part-1-输入与上下文安全" class="headerlink" title="Part 1: 输入与上下文安全"></a><strong>Part 1: 输入与上下文安全</strong></h3><ul>
+<li>是否检查所有输入以防止规则绕过？</li>
+<li>是否检测操纵性语言（针对agent或人类）？</li>
+<li>是否验证agent的角色和范围未被篡改？</li>
+</ul>
+<h3 id="Part-2-工具与数据治理"><a href="#Part-2-工具与数据治理" class="headerlink" title="Part 2: 工具与数据治理"></a><strong>Part 2: 工具与数据治理</strong></h3><ul>
+<li>是否明确定义agent可使用的工具白名单？</li>
+<li>是否在agent使用前检查文档&#x2F;数据的安全性？</li>
+<li>高风险操作（eg.删文件&#x2F;转账）是否需要人工审批？</li>
+</ul>
+<h3 id="Part-3-行为与运行时安全"><a href="#Part-3-行为与运行时安全" class="headerlink" title="Part 3: 行为与运行时安全"></a><strong>Part 3: 行为与运行时安全</strong></h3><ul>
+<li>新信息存入记忆前是否经过安全&#x2F;准确性检查？</li>
+<li>是否有预定义的限制和 kill switch 来停止失控agent（”紧急停止按钮”）？</li>
+<li>agent间通信（agent们私下聊天）是否可审计（非黑盒）？</li>
+<li>是否能检测agent凭证的权限蠕变（agent偷偷获得更多权限）？</li>
+</ul>
+<h3 id="结果解读模型"><a href="#结果解读模型" class="headerlink" title="结果解读模型"></a><strong>结果解读模型</strong></h3><table>
+<thead>
+<tr>
+<th>结果区域</th>
+<th>特征</th>
+<th>风险状态</th>
+<th>优先行动</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>盲区（Blind Zone）</strong></td>
+<td>多数回答”No”</td>
+<td>agent作为黑盒运行，无法检测目标劫持和工具滥用😱</td>
+<td>立即实施输入过滤和工具限制，缩小攻击面</td>
+</tr>
+<tr>
+<td><strong>漂移区（Drift Zone）</strong></td>
+<td>多数回答”Partial”</td>
+<td>有静态控制但缺乏动态行为监控，风险安静累积</td>
+<td>转向运行时行为监控，实施自动断路器🔧</td>
+</tr>
+<tr>
+<td><strong>治理区（Governor Zone）</strong></td>
+<td>多数回答”Yes”</td>
+<td>具备预防-检测-响应闭环，挑战在于规模化💪</td>
+<td>通过自动化平台（如 Prisma AIRS）实现集中治理</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="四、Palo-Alto-Networks-的解决方案映射"><a href="#四、Palo-Alto-Networks-的解决方案映射" class="headerlink" title="四、Palo Alto Networks 的解决方案映射"></a>四、Palo Alto Networks 的解决方案映射</h2><p>将每个威胁与 <strong>Prisma AIRS</strong>（AI Runtime Security）的功能对应，分为三个技术层：</p>
+<h3 id="1-AI-Agent-Security（agent级安全）"><a href="#1-AI-Agent-Security（agent级安全）" class="headerlink" title="1. AI Agent Security（agent级安全）"></a>1. AI Agent Security（agent级安全）</h3><ul>
+<li><strong>意图治理</strong>：确保指令一致性，防止目标劫持</li>
+<li><strong>权限边界</strong>：定义agent访问范围⭕，实施最小权限</li>
+</ul>
+<h3 id="2-AI-Runtime-Security™（运行时安全）"><a href="#2-AI-Runtime-Security™（运行时安全）" class="headerlink" title="2. AI Runtime Security™（运行时安全）"></a>2. AI Runtime Security™（运行时安全）</h3><ul>
+<li><strong>输入扫描</strong>：检测 MCP 工具流量、RAG 上下文中的对抗性操纵</li>
+<li><strong>行为干预</strong>：阻止恶意 URL、恶意代码生成、越狱尝试</li>
+<li><strong>网络拦截</strong>：强制执行agent间通信的 TLS 协议（确保agent间通信加密🔐），防止中间人攻击</li>
+</ul>
+<h3 id="3-AI-Posture-Management（姿态管理）"><a href="#3-AI-Posture-Management（姿态管理）" class="headerlink" title="3. AI Posture Management（姿态管理）"></a>3. AI Posture Management（姿态管理）</h3><ul>
+<li><strong>持续发现</strong>：清点所有agent、工具、插件和模型</li>
+<li><strong>配置漂移检测</strong>：发现未授权的权限变更和影子 MCP 服务器</li>
+<li><strong>合规基线</strong>：强制执行安全策略，防止配置弱化</li>
+</ul>
+<hr>
+<h2 id="五、关键洞察总结"><a href="#五、关键洞察总结" class="headerlink" title="五、关键洞察总结"></a>五、关键洞察总结</h2><ol>
+<li><p><strong>风险本质变化</strong>：Agentic AI 的安全不再是修补漏洞，而是<strong>治理行为</strong>。风险在agent的”规划-记忆-行动”循环中动态产生。</p>
+</li>
+<li><p><strong>复合性威胁</strong>：系统很少因单一控制缺失而失败，而是<strong>小缺口跨层复合</strong>（如投毒输入 + 过度权限 + 级联执行 &#x3D; 💥）。</p>
+</li>
+<li><p><strong>信任的脆弱性</strong>：人类对agent的语言流畅性和”专业性”的信任，成为新的攻击向量（ASI09），需要建立”验证而非信任”的文化🕵️‍♀️。</p>
+</li>
+<li><p><strong>供应链新形态</strong>：动态加载的 MCP 服务器、第三方工具定义构成了<strong>运行时供应链</strong>，传统 SCA（软件成分分析）无法覆盖。</p>
+</li>
+<li><p><strong>防御哲学</strong>：从”消除风险”转向”约束风险”——接受自治系统的不确定性，但通过<strong>持续可见性、实时干预和最小权限</strong>将其限制在可控范围内。</p>
+</li>
+</ol>
+<hr>
+<p>这份指南的核心价值在于：<strong>将抽象的智能体风险转化为可操作的检查清单和技术控制点</strong>，帮助企业在部署 Agentic AI 时实现”快速但安全”（fast, safe, and predictable）的目标。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://heyangqh666.github.io/agentic-security/2026/03/16/20260107%20Protect%20AI%20%E7%A4%BE%E5%8C%BA%20owasp-agentic-top-10-survival-guide/" data-id="cuidTg5oOaJczuwWjvSl9-p7k" data-title="🤖 OWASP Agentic AI Top 10 生存指南 · 解析版 🛡️" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/agentic-security/tags/Agentic-AI%E5%AE%89%E5%85%A8/" rel="tag">Agentic AI安全</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/agentic-security/tags/Protect-AI%E7%A4%BE%E5%8C%BA/" rel="tag">Protect AI社区</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-20260109 Protect AI 社区 OpenClaw (formerly Moltbot, Clawdbot) May Signal the Next AI Security Crisis" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/agentic-security/2026/03/16/20260109%20Protect%20AI%20%E7%A4%BE%E5%8C%BA%20OpenClaw%20(formerly%20Moltbot,%20Clawdbot)%20May%20Signal%20the%20Next%20AI%20Security%20Crisis/" class="article-date">
+  <time class="dt-published" datetime="2026-03-16T02:50:00.000Z" itemprop="datePublished">2026-03-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/agentic-security/categories/agentic-security/">agentic-security</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/agentic-security/2026/03/16/20260109%20Protect%20AI%20%E7%A4%BE%E5%8C%BA%20OpenClaw%20(formerly%20Moltbot,%20Clawdbot)%20May%20Signal%20the%20Next%20AI%20Security%20Crisis/">OpenClaw (之前的 Moltbot, Clawdbot) 可能标示下一次AI安全危机</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>来源：<a target="_blank" rel="noopener" href="https://www.paloaltonetworks.com/blog/network-security/why-moltbot-may-signal-ai-crisis/">OpenClaw (formerly Moltbot, Clawdbot) May Signal the Next AI Security Crisis - Palo Alto Networks Blog</a></p>
+<p>发布时间：2026年1月9日</p>
+<h2 id="🧭-1-什么是-OpenClaw？为什么突然爆火？"><a href="#🧭-1-什么是-OpenClaw？为什么突然爆火？" class="headerlink" title="🧭 1. 什么是 OpenClaw？为什么突然爆火？"></a>🧭 1. <strong>什么是 OpenClaw？为什么突然爆火？</strong></h2><p>OpenClaw（原名 Moltbot &#x2F; Clawdbot）被其作者称为：</p>
+<blockquote>
+<p><strong>“the AI that actually does things.”</strong></p>
+</blockquote>
+<p>它具备极强的自主能力，并在一周内获得：</p>
+<ul>
+<li>⭐ <strong>85,000+ GitHub stars</strong></li>
+<li>🍴 <strong>11,500+ forks</strong></li>
+</ul>
+<h3 id="核心能力（高度自主）"><a href="#核心能力（高度自主）" class="headerlink" title="核心能力（高度自主）"></a><strong>核心能力（高度自主）</strong></h3><ul>
+<li>浏览网页</li>
+<li>总结 PDF</li>
+<li>读写本地文件</li>
+<li>控制桌面应用</li>
+<li>发送邮件、消息</li>
+<li>访问密码、API 密钥、浏览器 Cookie</li>
+<li><strong>最关键：持久化记忆（persistent memory）</strong></li>
+</ul>
+<p>它几乎就是一个“能操作你电脑的一体化 AI 助手”。</p>
+<hr>
+<h2 id="🛑-2-核心问题：强大，但极度不安全"><a href="#🛑-2-核心问题：强大，但极度不安全" class="headerlink" title="🛑 2. 核心问题：强大，但极度不安全"></a>🛑 2. <strong>核心问题：强大，但极度不安全</strong></h2><p>为了正常工作，OpenClaw 需要：</p>
+<ul>
+<li>root 文件访问</li>
+<li>所有密码与 API 密钥</li>
+<li>浏览器历史与 Cookie</li>
+<li>全盘文件访问</li>
+<li>可被 WhatsApp &#x2F; Telegram 等远程触发</li>
+</ul>
+<p><strong>这意味着：任何输入都可能触发高权限操作。</strong></p>
+<blockquote>
+<p>OpenClaw 具备：</p>
+<ul>
+<li>root 权限</li>
+<li>全盘文件访问</li>
+<li>密码与 API 密钥</li>
+<li>浏览器 Cookie</li>
+<li>能执行命令</li>
+<li>能发消息</li>
+<li>能读网页</li>
+<li>能读 Telegram &#x2F; WhatsApp</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="⚠️-3-三大典型使用场景-→-三大高危风险"><a href="#⚠️-3-三大典型使用场景-→-三大高危风险" class="headerlink" title="⚠️ 3. 三大典型使用场景 → 三大高危风险"></a>⚠️ 3. <strong>三大典型使用场景 → 三大高危风险</strong></h2><h3 id="场景-1：研究主题-生成社交媒体内容"><a href="#场景-1：研究主题-生成社交媒体内容" class="headerlink" title="场景 1：研究主题 + 生成社交媒体内容"></a><strong>场景 1：研究主题 + 生成社交媒体内容</strong></h3><p>风险：</p>
+<ul>
+<li>网页结果可能包含 <strong>间接提示注入（indirect prompt injection）</strong></li>
+<li>OpenClaw 会执行恶意命令、泄露机密，并自动发布到社交媒体</li>
+<li>无人工审核</li>
+</ul>
+<hr>
+<h3 id="场景-2：读取-Telegram-消息并生成行动项"><a href="#场景-2：读取-Telegram-消息并生成行动项" class="headerlink" title="场景 2：读取 Telegram 消息并生成行动项"></a><strong>场景 2：读取 Telegram 消息并生成行动项</strong></h3><p>风险：</p>
+<ul>
+<li>恶意链接与正常消息同等对待</li>
+<li>即使是加密消息（Signal&#x2F;WhatsApp）也会被解密后处理</li>
+<li>持久化记忆导致“延迟多轮攻击链”<ul>
+<li>恶意指令可在一周后触发</li>
+<li>当前安全系统无法检测</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="场景-3：使用第三方托管的-OpenClaw-技能"><a href="#场景-3：使用第三方托管的-OpenClaw-技能" class="headerlink" title="场景 3：使用第三方托管的 OpenClaw 技能"></a><strong>场景 3：使用第三方托管的 OpenClaw 技能</strong></h3><p>风险：</p>
+<ul>
+<li>技能无审核、无沙箱</li>
+<li>恶意代码可写入持久化记忆</li>
+<li>可窃取机密、发送私密对话、窃取商业数据</li>
+</ul>
+<hr>
+<h2 id="🔥-4-OpenClaw-的根本问题：没有信任边界"><a href="#🔥-4-OpenClaw-的根本问题：没有信任边界" class="headerlink" title="🔥 4. OpenClaw 的根本问题：没有信任边界"></a>🔥 4. <strong>OpenClaw 的根本问题：没有信任边界</strong></h2><p>OpenClaw <strong>不区分可信与不可信输入</strong>：</p>
+<ul>
+<li>网页内容</li>
+<li>消息</li>
+<li>第三方技能</li>
+<li>用户命令</li>
+<li>旧记忆</li>
+</ul>
+<p>全部被视为同等可信，并能直接影响：</p>
+<ul>
+<li>推理</li>
+<li>计划</li>
+<li>工具调用（bash、文件、邮件、API）</li>
+</ul>
+<p>这导致：</p>
+<blockquote>
+<p><strong>外部输入 → 直接控制高权限操作</strong></p>
+</blockquote>
+<hr>
+<h2 id="💣-5-“致命三角”（Lethal-Trifecta）被-OpenClaw-扩展为“四角”"><a href="#💣-5-“致命三角”（Lethal-Trifecta）被-OpenClaw-扩展为“四角”" class="headerlink" title="💣 5. “致命三角”（Lethal Trifecta）被 OpenClaw 扩展为“四角”"></a>💣 5. <strong>“致命三角”（Lethal Trifecta）被 OpenClaw 扩展为“四角”</strong></h2><p><img src="/agentic-security/images/Screenshot-2026-01-28-at-11.01.07-AM.png"></p>
+<p>Simon Willison 的原始“致命三角”：</p>
+<ol>
+<li>访问私密数据</li>
+<li>暴露于不可信内容</li>
+<li>能执行外部操作</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">文章引用这张图，是为了说明：</span><br><span class="line"></span><br><span class="line">任何 AI Agent 只要同时具备这三种能力，就天然处于极高风险区。</span><br><span class="line"></span><br><span class="line">为什么？</span><br><span class="line"></span><br><span class="line">因为：</span><br><span class="line"></span><br><span class="line">- 它能读你的隐私</span><br><span class="line">- 它会接触不可信输入（网页、消息、第三方技能）</span><br><span class="line">- 它能执行外部操作（发邮件、执行命令、上传数据）</span><br><span class="line"></span><br><span class="line">这三者一旦同时存在，就形成了一个结构性安全漏洞：</span><br><span class="line">外部输入 → 内部推理 → 高权限操作  </span><br><span class="line">中间没有任何隔离层。</span><br><span class="line"></span><br><span class="line">OpenClaw 恰恰具备这三者，而且每一项都做得“极致”。</span><br></pre></td></tr></table></figure>
+
+<p>OpenClaw 新增第 4 个能力：</p>
+<h4 id="4-持久化记忆（Persistent-Memory）"><a href="#4-持久化记忆（Persistent-Memory）" class="headerlink" title="4. 持久化记忆（Persistent Memory）"></a><strong>4. 持久化记忆（Persistent Memory）</strong></h4><p><img src="/agentic-security/images/Screenshot-2026-01-28-at-11.25.23-AM.png"></p>
+<p>带来：</p>
+<ul>
+<li><strong>状态化攻击（stateful attacks）</strong></li>
+<li><strong>延迟执行（delayed execution）</strong></li>
+<li><strong>逻辑炸弹（logic bombs）</strong></li>
+<li><strong>记忆投毒（memory poisoning）</strong></li>
+</ul>
+<p>攻击者可以：</p>
+<ul>
+<li>把恶意指令分段写入记忆（恶意内容可以在记忆中潜伏）</li>
+<li>等待未来某个时机自动触发（攻击不再是即时的）</li>
+<li>形成“时间偏移攻击链（time-shifted attack chain）”</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">持久化记忆</span><br><span class="line"></span><br><span class="line">→ 让攻击变成：</span><br><span class="line"></span><br><span class="line">- 可延迟</span><br><span class="line">- 可跨会话</span><br><span class="line">- 可跨天</span><br><span class="line">- 可组合</span><br><span class="line">- 可潜伏</span><br><span class="line">- 可自我强化</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="🧨-6-OpenClaw-在-OWASP-Agent-Top-10-中几乎全线失守"><a href="#🧨-6-OpenClaw-在-OWASP-Agent-Top-10-中几乎全线失守" class="headerlink" title="🧨 6. OpenClaw 在 OWASP Agent Top 10 中几乎全线失守"></a>🧨 6. <strong>OpenClaw 在 OWASP Agent Top 10 中几乎全线失守</strong></h2><p>文章逐条映射了 OpenClaw 的漏洞：</p>
+<table>
+<thead>
+<tr>
+<th>OWASP 风险</th>
+<th>OpenClaw 的问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A01 Prompt Injection</td>
+<td>网页、消息、技能都能注入指令</td>
+</tr>
+<tr>
+<td>A02 不安全工具调用</td>
+<td>工具调用基于不可信记忆</td>
+</tr>
+<tr>
+<td>A03 过度自治</td>
+<td>root 权限 + 网络访问 + 无边界</td>
+</tr>
+<tr>
+<td>A04 无人工审核</td>
+<td>删除文件、泄露数据无需确认</td>
+</tr>
+<tr>
+<td>A05 记忆投毒</td>
+<td>所有记忆无信任等级</td>
+</tr>
+<tr>
+<td>A06 不安全第三方技能</td>
+<td>技能可写入记忆并执行</td>
+</tr>
+<tr>
+<td>A07 权限缺乏隔离</td>
+<td>同一 agent 处理所有权限</td>
+</tr>
+<tr>
+<td>A08 供应链风险</td>
+<td>上游 LLM 未验证</td>
+</tr>
+<tr>
+<td>A09 无限制 agent 间通信</td>
+<td>未来版本风险更大</td>
+</tr>
+<tr>
+<td>A10 缺乏运行时监控</td>
+<td>无策略层、无异常检测</td>
+</tr>
+</tbody></table>
+<p>附：<a target="_blank" rel="noopener" href="https://www.paloaltonetworks.com/resources/ebooks/owasp-agentic-top-10-survival-guide">OWASP Agentic AI Survival Guide</a></p>
+<p>文章结论非常明确：</p>
+<blockquote>
+<p><strong>OpenClaw 是一个无限攻击面，并且拥有你的所有凭证。</strong></p>
+</blockquote>
+<hr>
+<h2 id="🧭-7-持久化记忆：未来-AI-助手必须有，但必须安全"><a href="#🧭-7-持久化记忆：未来-AI-助手必须有，但必须安全" class="headerlink" title="🧭 7. 持久化记忆：未来 AI 助手必须有，但必须安全"></a>🧭 7. <strong>持久化记忆：未来 AI 助手必须有，但必须安全</strong></h2><p>文章承认：</p>
+<ul>
+<li>持久化记忆是迈向 AGI 的关键能力</li>
+<li>但在无治理的自主 agent 中，它是“给火上浇汽油”</li>
+</ul>
+<hr>
+<h2 id="🛡️-8-最终结论：OpenClaw-不适合企业使用"><a href="#🛡️-8-最终结论：OpenClaw-不适合企业使用" class="headerlink" title="🛡️ 8. 最终结论：OpenClaw 不适合企业使用"></a>🛡️ 8. <strong>最终结论：OpenClaw 不适合企业使用</strong></h2><p>作者观点：</p>
+<ul>
+<li>OpenClaw 的架构无法治理</li>
+<li>自主性过强</li>
+<li>攻击面不可控</li>
+<li>即使 UI 做了安全强化，也无济于事</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">因为：</span><br><span class="line"></span><br><span class="line">- 它具备致命三角</span><br><span class="line">- 又具备持久化记忆</span><br><span class="line">- 又没有信任边界</span><br><span class="line">- 又没有人类审批</span><br><span class="line">- 又没有沙箱</span><br><span class="line">- 又没有权限隔离</span><br><span class="line">- 又没有运行时监控</span><br><span class="line">- 又没有策略层</span><br><span class="line">- 又没有记忆分级</span><br><span class="line"></span><br><span class="line">换句话说：</span><br><span class="line"></span><br><span class="line">&gt; **OpenClaw = 一个拥有你所有权限、会执行外部命令、会记住所有输入、且无法治理的 AI。**</span><br><span class="line"></span><br><span class="line">这就是文章的核心警告。</span><br></pre></td></tr></table></figure>
+
+<p>未来的 AI 助手必须：</p>
+<ul>
+<li><strong>更智能</strong></li>
+<li><strong>更安全</strong></li>
+<li><strong>有治理能力</strong></li>
+<li><strong>知道什么时候不该行动</strong></li>
+</ul>
+<hr>
+<h2 id="🔥9-可视化图表——攻击链图、趋势图、风险矩阵"><a href="#🔥9-可视化图表——攻击链图、趋势图、风险矩阵" class="headerlink" title="🔥9.可视化图表——攻击链图、趋势图、风险矩阵"></a>🔥9.可视化图表——攻击链图、趋势图、风险矩阵</h2><h3 id="📊-图表-1：OpenClaw-攻击链（Attack-Chain）"><a href="#📊-图表-1：OpenClaw-攻击链（Attack-Chain）" class="headerlink" title="📊 图表 1：OpenClaw 攻击链（Attack Chain）"></a>📊 <strong>图表 1：OpenClaw 攻击链（Attack Chain）</strong></h3><h4 id="OpenClaw-的-AI-驱动攻击链（基于原文三大场景-持久化记忆）"><a href="#OpenClaw-的-AI-驱动攻击链（基于原文三大场景-持久化记忆）" class="headerlink" title="OpenClaw 的 AI 驱动攻击链（基于原文三大场景 + 持久化记忆）"></a><strong>OpenClaw 的 AI 驱动攻击链（基于原文三大场景 + 持久化记忆）</strong></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">[1. Untrusted Input Ingestion 不可信输入摄取]</span><br><span class="line">    - 网页搜索结果（含 HTML 注入）</span><br><span class="line">    - Telegram / WhatsApp 消息</span><br><span class="line">    - 第三方技能描述与代码</span><br><span class="line">    - 这些内容全部进入 OpenClaw 的上下文与记忆</span><br><span class="line"></span><br><span class="line">                     ↓</span><br><span class="line"></span><br><span class="line">[2. Memory Poisoning 记忆投毒]</span><br><span class="line">    - 所有输入被写入持久化记忆</span><br><span class="line">    - 无信任等级、无过期机制</span><br><span class="line">    - 恶意指令可分段写入（fragmented payload）</span><br><span class="line"></span><br><span class="line">                     ↓</span><br><span class="line"></span><br><span class="line">[3. Reasoning Manipulation 推理操控]</span><br><span class="line">    - OpenClaw 的推理链被污染</span><br><span class="line">    - 旧记忆 + 恶意内容共同影响计划生成</span><br><span class="line">    - 无策略层、无隔离区</span><br><span class="line"></span><br><span class="line">                     ↓</span><br><span class="line"></span><br><span class="line">[4. Tool Invocation 工具调用]</span><br><span class="line">    - 高权限工具被自动调用：</span><br><span class="line">        * bash（rm -rf）</span><br><span class="line">        * 文件读写</span><br><span class="line">        * 邮件发送</span><br><span class="line">        * 消息发送</span><br><span class="line">        * API 调用</span><br><span class="line">    - 无人工审批（A04）</span><br><span class="line"></span><br><span class="line">                     ↓</span><br><span class="line"></span><br><span class="line">[5. External Communication 外部通信]</span><br><span class="line">    - 自动发布社交媒体内容</span><br><span class="line">    - 自动发送消息/邮件</span><br><span class="line">    - 自动上传数据</span><br><span class="line"></span><br><span class="line">                     ↓</span><br><span class="line"></span><br><span class="line">[6. Delayed Execution 延迟触发]</span><br><span class="line">    - 持久化记忆使攻击可跨天/跨周触发</span><br><span class="line">    - 形成“时间偏移攻击链（time-shifted attack chain）”</span><br><span class="line"></span><br><span class="line">                     ↓</span><br><span class="line"></span><br><span class="line">[7. Full Compromise 全面失陷]</span><br><span class="line">    - 凭证泄露</span><br><span class="line">    - 私密文件泄露</span><br><span class="line">    - 业务数据泄露</span><br><span class="line">    - 系统被远程操控</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="📈-图表-2：AI-攻击演进趋势图（Trend-Chart）"><a href="#📈-图表-2：AI-攻击演进趋势图（Trend-Chart）" class="headerlink" title="📈 图表 2：AI 攻击演进趋势图（Trend Chart）"></a>📈 <strong>图表 2：AI 攻击演进趋势图（Trend Chart）</strong></h3><h4 id="OpenClaw-在-AI-攻击演进中的位置"><a href="#OpenClaw-在-AI-攻击演进中的位置" class="headerlink" title="OpenClaw 在 AI 攻击演进中的位置"></a><strong>OpenClaw 在 AI 攻击演进中的位置</strong></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">攻击复杂度 ↑</span><br><span class="line">│</span><br><span class="line">│                ┌───────────────────────────────</span><br><span class="line">│                │ 未来：自主 AI 攻击者（Autonomous AI Attackers）</span><br><span class="line">│                │   - 自主决策</span><br><span class="line">│                │   - 自我学习</span><br><span class="line">│                │   - 多agent协同攻击</span><br><span class="line">│                │   - 大规模并行攻击</span><br><span class="line">│        ┌───────┘</span><br><span class="line">│        │</span><br><span class="line">│   ┌────┘     当前：OpenClaw 阶段（Agentic + Persistent Memory）</span><br><span class="line">│   │            - 全链路自动化</span><br><span class="line">│   │            - 持久化记忆（延迟攻击）</span><br><span class="line">│   │            - 无信任边界</span><br><span class="line">│───┘</span><br><span class="line">│</span><br><span class="line">│ 过去：AI 辅助攻击（AI-assisted）</span><br><span class="line">│       - 生成 phishing 文本</span><br><span class="line">│       - 自动化程度低</span><br><span class="line">│</span><br><span class="line">└────────────────────────────────────────→ 时间 →</span><br></pre></td></tr></table></figure>
+
+<p><strong>关键洞察：</strong><br> OpenClaw 是从“AI 辅助攻击”向“AI 自主攻击”的关键跃迁点。</p>
+<hr>
+<h3 id="🟥🟧🟨🟩-图表-3：OpenClaw-风险矩阵（Risk-Matrix）"><a href="#🟥🟧🟨🟩-图表-3：OpenClaw-风险矩阵（Risk-Matrix）" class="headerlink" title="🟥🟧🟨🟩 图表 3：OpenClaw 风险矩阵（Risk Matrix）"></a>🟥🟧🟨🟩 <strong>图表 3：OpenClaw 风险矩阵（Risk Matrix）</strong></h3><h4 id="Impact-×-Likelihood（基于原文三大场景-OWASP-映射）"><a href="#Impact-×-Likelihood（基于原文三大场景-OWASP-映射）" class="headerlink" title="Impact × Likelihood（基于原文三大场景 + OWASP 映射）"></a><strong>Impact × Likelihood（基于原文三大场景 + OWASP 映射）</strong></h4><table>
+<thead>
+<tr>
+<th>风险事件</th>
+<th>可能性（Likelihood）</th>
+<th>影响（Impact）</th>
+<th>风险等级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>持久化记忆导致延迟攻击链</strong></td>
+<td>高</td>
+<td>高</td>
+<td>🔴 极高</td>
+</tr>
+<tr>
+<td><strong>第三方技能注入恶意代码</strong></td>
+<td>高</td>
+<td>高</td>
+<td>🔴 极高</td>
+</tr>
+<tr>
+<td><strong>网页&#x2F;消息中的间接提示注入</strong></td>
+<td>高</td>
+<td>高</td>
+<td>🔴 极高</td>
+</tr>
+<tr>
+<td><strong>高权限工具被自动调用（rm -rf &#x2F; send email）</strong></td>
+<td>中高</td>
+<td>高</td>
+<td>🔴 极高</td>
+</tr>
+<tr>
+<td><strong>凭证泄露（API 密钥、密码、Cookie）</strong></td>
+<td>中高</td>
+<td>高</td>
+<td>🔴 极高</td>
+</tr>
+<tr>
+<td><strong>业务数据被自动发布到外部平台</strong></td>
+<td>中</td>
+<td>高</td>
+<td>🟧 高</td>
+</tr>
+<tr>
+<td><strong>加密消息（Signal&#x2F;WhatsApp）被恶意利用</strong></td>
+<td>中</td>
+<td>中高</td>
+<td>🟧 高</td>
+</tr>
+<tr>
+<td><strong>供应链风险（上游 LLM 未验证）</strong></td>
+<td>中</td>
+<td>中</td>
+<td>🟨 中</td>
+</tr>
+<tr>
+<td><strong>用户误操作导致权限滥用</strong></td>
+<td>中</td>
+<td>中</td>
+<td>🟨 中</td>
+</tr>
+</tbody></table>
+<p><strong>结论：</strong><br> OpenClaw 的风险集中在 <strong>高可能性 × 高影响</strong> 的象限，是典型的“不可接受风险”。</p>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://heyangqh666.github.io/agentic-security/2026/03/16/20260109%20Protect%20AI%20%E7%A4%BE%E5%8C%BA%20OpenClaw%20(formerly%20Moltbot,%20Clawdbot)%20May%20Signal%20the%20Next%20AI%20Security%20Crisis/" data-id="cuid_E1nqm1PhktKOlAeFcEUV" data-title="OpenClaw (之前的 Moltbot, Clawdbot) 可能标示下一次AI安全危机" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/agentic-security/tags/OpenClaw%E5%AE%89%E5%85%A8/" rel="tag">OpenClaw安全</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/agentic-security/tags/Protect-AI%E7%A4%BE%E5%8C%BA/" rel="tag">Protect AI社区</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-20260205 Protect AI社区 The Moltbook Case and How We Need to Think about Agent Security" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/agentic-security/2026/03/16/20260205%20Protect%20AI%E7%A4%BE%E5%8C%BA%20The%20Moltbook%20Case%20and%20How%20We%20Need%20to%20Think%20about%20Agent%20Security/" class="article-date">
+  <time class="dt-published" datetime="2026-03-16T02:50:00.000Z" itemprop="datePublished">2026-03-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/agentic-security/categories/agentic-security/">agentic-security</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/agentic-security/2026/03/16/20260205%20Protect%20AI%E7%A4%BE%E5%8C%BA%20The%20Moltbook%20Case%20and%20How%20We%20Need%20to%20Think%20about%20Agent%20Security/">🧩Moltbook 案例 &amp; 我们如何认识Agent Security</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>来源：<a target="_blank" rel="noopener" href="https://www.paloaltonetworks.com/blog/network-security/the-moltbook-case-and-how-we-need-to-think-about-agent-security/">The Moltbook Case and How We Need to Think about Agent Security - Palo Alto Networks Blog</a></p>
+<p>发布时间：2026年2月5日</p>
+<h2 id="🌟-一、文章到底在讲什么？（一句话版）"><a href="#🌟-一、文章到底在讲什么？（一句话版）" class="headerlink" title="🌟 一、文章到底在讲什么？（一句话版）"></a>🌟 一、文章到底在讲什么？（一句话版）</h2><p>作者借 <a target="_blank" rel="noopener" href="https://www.moltbook.com/">Moltbook</a> 这个“只给 AI Agent 用的 Reddit 式社区”，指出：<br> <strong>真正的风险不在单个 Agent，而在缺乏身份、边界和上下文治理的“Agent 生态系统”</strong>。<br> 因此提出了一个核心框架：<br> <strong>Agent Security &#x3D; Identity × Boundaries × Context</strong> ✖️✖️✖️</p>
+<blockquote>
+<p>这是一个“乘法关系”，任何一项接近 0，整体安全就接近 0 —— 非常适合在企业内部沟通时使用 ✨</p>
+</blockquote>
+<hr>
+<h2 id="🧠-二、为什么-Agent-安全与传统-AI-安全完全不同？"><a href="#🧠-二、为什么-Agent-安全与传统-AI-安全完全不同？" class="headerlink" title="🧠 二、为什么 Agent 安全与传统 AI 安全完全不同？"></a>🧠 二、为什么 Agent 安全与传统 AI 安全完全不同？</h2><h3 id="1-Agent-≠-普通大模型应用"><a href="#1-Agent-≠-普通大模型应用" class="headerlink" title="1. Agent ≠ 普通大模型应用"></a>1. Agent ≠ 普通大模型应用</h3><ul>
+<li>普通应用：输入 → 输出</li>
+<li>Agent：<strong>能代表你行动</strong>（调用工具、访问数据、执行任务）</li>
+</ul>
+<h3 id="2-安全问题从“输出是否安全”升级为“行为是否可治理”"><a href="#2-安全问题从“输出是否安全”升级为“行为是否可治理”" class="headerlink" title="2. 安全问题从“输出是否安全”升级为“行为是否可治理”"></a>2. 安全问题从“输出是否安全”升级为“行为是否可治理”</h3><p>关键不再是“模型说了什么”，而是：</p>
+<ul>
+<li><strong>它是谁？（Identity）</strong></li>
+<li><strong>它能做什么？（Boundaries）</strong></li>
+<li><strong>它现在做的事合理吗？（Context）</strong></li>
+</ul>
+<p>这三点构成了 Agent 安全的根基 🐱</p>
+<hr>
+<h2 id="🔺-三、IBC-框架：三问撑起-Agent-安全"><a href="#🔺-三、IBC-框架：三问撑起-Agent-安全" class="headerlink" title="🔺 三、IBC 框架：三问撑起 Agent 安全"></a>🔺 三、IBC 框架：三问撑起 Agent 安全</h2><p>图片中的三问非常精炼：</p>
+<p><img src="/agentic-security/images/image-20260315165246768.png"></p>
+<h3 id="1️⃣-Identity-–-Who-is-this-agent"><a href="#1️⃣-Identity-–-Who-is-this-agent" class="headerlink" title="1️⃣ Identity – Who is this agent?"></a>1️⃣ Identity – <strong>Who is this agent?</strong></h3><p>👉 对应：</p>
+<ul>
+<li>它是谁？</li>
+<li>谁创建了它？</li>
+<li>它本来要做什么？</li>
+<li>是否可追溯、可问责？</li>
+</ul>
+<h3 id="2️⃣-Operating-Boundaries-–-What-can-it-do"><a href="#2️⃣-Operating-Boundaries-–-What-can-it-do" class="headerlink" title="2️⃣ Operating Boundaries – What can it do?"></a>2️⃣ Operating Boundaries – <strong>What can it do?</strong></h3><p>👉 对应：</p>
+<ul>
+<li>它能访问哪些数据？</li>
+<li>能调用哪些工具？</li>
+<li>决策权限到什么程度？</li>
+<li>最坏情况下能造成多大破坏（blast radius）？</li>
+</ul>
+<h3 id="3️⃣-Context-Integrity-–-Is-its-action-valid-at-this-moment"><a href="#3️⃣-Context-Integrity-–-Is-its-action-valid-at-this-moment" class="headerlink" title="3️⃣ Context Integrity – Is its action valid at this moment?"></a>3️⃣ Context Integrity – <strong>Is its action valid at this moment?</strong></h3><p>👉 对应：</p>
+<ul>
+<li>它此刻做的行为，在当前上下文下合理吗？</li>
+<li>在这个时间点、流程阶段、交互链路中是否符合预期？</li>
+<li>是否存在策略漂移、异常行为、协同行为？</li>
+</ul>
+<blockquote>
+<p>✨ 这三问构成了文章的核心逻辑，也是企业治理 Agent 的“最低必答题”。</p>
+</blockquote>
+<hr>
+<h2 id="📚-四、Moltbook-案例：当-I-B-C-都很弱时，会发生什么？"><a href="#📚-四、Moltbook-案例：当-I-B-C-都很弱时，会发生什么？" class="headerlink" title="📚 四、Moltbook 案例：当 I &#x2F; B &#x2F; C 都很弱时，会发生什么？"></a>📚 四、Moltbook 案例：当 I &#x2F; B &#x2F; C 都很弱时，会发生什么？</h2><p><img src="/agentic-security/images/image-20260315165218264.png"></p>
+<p><a target="_blank" rel="noopener" href="https://www.moltbook.com/">Moltbook</a> 是一个只给 Agent 用的 Reddit 式平台，规模惊人（百万级 Agent、百万级互动）。<br> 作者用 IBC 视角分析它的问题：</p>
+<h3 id="🧩-1-Identity：身份弱到几乎不存在"><a href="#🧩-1-Identity：身份弱到几乎不存在" class="headerlink" title="🧩 1. Identity：身份弱到几乎不存在"></a>🧩 1. Identity：身份弱到几乎不存在</h3><ul>
+<li>Agent 可以随便生成</li>
+<li>没有来源、目的、责任主体</li>
+<li>身份只用于“互动”，不是用于治理</li>
+</ul>
+<p><img src="/agentic-security/images/image-20260315165650583.png"></p>
+<h3 id="🧩-2-Operating-Boundaries：边界是自我声明的（等于没有）"><a href="#🧩-2-Operating-Boundaries：边界是自我声明的（等于没有）" class="headerlink" title="🧩 2. Operating Boundaries：边界是自我声明的（等于没有）"></a>🧩 2. Operating Boundaries：边界是自我声明的（等于没有）</h3><ul>
+<li>Agent 自己决定能做什么</li>
+<li>没有统一权限、没有爆炸半径设计</li>
+<li>边界会随时间演化</li>
+<li>甚至出现了“Agent 自发形成宗教”这种极端现象 😨</li>
+</ul>
+<h3 id="🧩-3-Context-Integrity：只有事后监控，没有系统级理解"><a href="#🧩-3-Context-Integrity：只有事后监控，没有系统级理解" class="headerlink" title="🧩 3. Context Integrity：只有事后监控，没有系统级理解"></a>🧩 3. Context Integrity：只有事后监控，没有系统级理解</h3><ul>
+<li>单个行为看起来都正常</li>
+<li>系统层面却可能出现：<ul>
+<li>协同&#x2F;串谋</li>
+<li>长期漂移</li>
+<li>反馈回路</li>
+</ul>
+</li>
+<li>风险被放大但难以察觉</li>
+</ul>
+<blockquote>
+<p>作者强调：Moltbook 的问题不是“危险”，而是“<strong>任何人都能轻易构建一个无治理的 Agent 生态</strong>”。</p>
+</blockquote>
+<hr>
+<h2 id="🏢-五、企业应该如何避免“企业版-Moltbook”？"><a href="#🏢-五、企业应该如何避免“企业版-Moltbook”？" class="headerlink" title="🏢 五、企业应该如何避免“企业版 Moltbook”？"></a>🏢 五、企业应该如何避免“企业版 Moltbook”？</h2><p>下面是文章中的对照逻辑：</p>
+<h3 id="Identity（身份）"><a href="#Identity（身份）" class="headerlink" title="Identity（身份）"></a>Identity（身份）</h3><ul>
+<li><strong>Moltbook：</strong> 弱身份、不可追溯</li>
+<li><strong>企业：</strong> 强身份绑定（人&#x2F;团队&#x2F;服务）、全链路审计、可问责</li>
+</ul>
+<h3 id="Operating-Boundaries（操作边界）"><a href="#Operating-Boundaries（操作边界）" class="headerlink" title="Operating Boundaries（操作边界）"></a>Operating Boundaries（操作边界）</h3><ul>
+<li><strong>Moltbook：</strong> 自定义、可演化、无统一约束</li>
+<li><strong>企业：</strong> 集中定义权限、最小权限原则、爆炸半径设计</li>
+</ul>
+<h3 id="Context-Integrity（上下文完整性）"><a href="#Context-Integrity（上下文完整性）" class="headerlink" title="Context Integrity（上下文完整性）"></a>Context Integrity（上下文完整性）</h3><ul>
+<li><strong>Moltbook：</strong> 事后监控、缺乏系统视图</li>
+<li><strong>企业：</strong> 系统级可观测性、跨 Agent 行为分析、策略漂移检测</li>
+</ul>
+<hr>
+<h2 id="🧭-六、作者的“警告”与行动建议"><a href="#🧭-六、作者的“警告”与行动建议" class="headerlink" title="🧭 六、作者的“警告”与行动建议"></a>🧭 六、作者的“警告”与行动建议</h2><h3 id="1-真正的风险不是“某一次事故”，而是："><a href="#1-真正的风险不是“某一次事故”，而是：" class="headerlink" title="1. 真正的风险不是“某一次事故”，而是："></a>1. 真正的风险不是“某一次事故”，而是：</h3><ul>
+<li>很多小违规叠加成系统性风险</li>
+<li>18 个月后才发现 Agent 一直在悄悄越界</li>
+<li>面对监管时无法回答“你们如何治理 Agent？”</li>
+</ul>
+<h3 id="2-IBC-Test：企业的-Agent-安全体检"><a href="#2-IBC-Test：企业的-Agent-安全体检" class="headerlink" title="2. IBC Test：企业的 Agent 安全体检"></a>2. IBC Test：企业的 Agent 安全体检</h3><blockquote>
+<p>在任意时刻，你能否回答：<br> <strong>它是谁？它能做什么？它现在做的事合理吗？</strong></p>
+</blockquote>
+<p>如果回答不上来，就说明：</p>
+<ul>
+<li>身份不清</li>
+<li>边界不明</li>
+<li>上下文不可见<br> → <strong>你正在重演 Moltbook，只是规模更隐蔽、代价更高</strong>。</li>
+</ul>
+<p>附：Moltbook里面Agent们的热点讨论：</p>
+<p><img src="/agentic-security/images/image-20260315170547753.png" alt="image-20260315170547753"></p>
+<ul>
+<li></li>
+</ul>
+<p><img src="/agentic-security/images/image-20260315170616763.png" alt="image-20260315170616763"></p>
+<ul>
+<li></li>
+</ul>
+<p><img src="/agentic-security/images/image-20260315170644691.png" alt="image-20260315170644691"></p>
+<ul>
+<li></li>
+</ul>
+<p><img src="/agentic-security/images/image-20260315170712509.png" alt="image-20260315170712509"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://heyangqh666.github.io/agentic-security/2026/03/16/20260205%20Protect%20AI%E7%A4%BE%E5%8C%BA%20The%20Moltbook%20Case%20and%20How%20We%20Need%20to%20Think%20about%20Agent%20Security/" data-id="cuidhRB9XmG9otxZBE0cUKj1g" data-title="🧩Moltbook 案例 &amp; 我们如何认识Agent Security" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/agentic-security/tags/Agent-Security/" rel="tag">Agent Security</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/agentic-security/tags/Protect-AI%E7%A4%BE%E5%8C%BA/" rel="tag">Protect AI社区</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-20260309 Protect AI社区  Beyond Jailbreaks_Why Agentic AI Needs Contextual Red Teaming" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/agentic-security/2026/03/16/20260309%20Protect%20AI%E7%A4%BE%E5%8C%BA%20%20Beyond%20Jailbreaks_Why%20Agentic%20AI%20Needs%20Contextual%20Red%20Teaming/" class="article-date">
+  <time class="dt-published" datetime="2026-03-16T02:50:00.000Z" itemprop="datePublished">2026-03-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/agentic-security/categories/agentic-security/">agentic-security</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/agentic-security/2026/03/16/20260309%20Protect%20AI%E7%A4%BE%E5%8C%BA%20%20Beyond%20Jailbreaks_Why%20Agentic%20AI%20Needs%20Contextual%20Red%20Teaming/">🧩超越 Jailbreaks: 为什么 Agentic AI 需要 Contextual Red Teaming</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>来源：<a target="_blank" rel="noopener" href="https://www.paloaltonetworks.com/blog/network-security/beyond-jailbreaks-why-agentic-ai-needs-contextual-red-teaming/">Beyond Jailbreaks: Why Agentic AI Needs Contextual Red Teaming - Palo Alto Networks Blog</a></p>
+<p>发布时间：2026年3月9日</p>
+<p><em>提前解释：</em></p>
+<blockquote>
+<p>在这篇文章里，<strong>Contextual ≠ 语言上下文（linguistic context）</strong>   它指的是：</p>
+<h2 id="“基于系统真实能力、权限、工具、数据范围的上下文化安全测试”"><a href="#“基于系统真实能力、权限、工具、数据范围的上下文化安全测试”" class="headerlink" title="“基于系统真实能力、权限、工具、数据范围的上下文化安全测试”"></a><strong>“基于系统真实能力、权限、工具、数据范围的上下文化安全测试”</strong></h2><p>也就是：</p>
+<ul>
+<li>先理解系统能做什么</li>
+<li>再基于这些能力构造攻击</li>
+<li>不是用通用 jailbreak prompt 去乱撞</li>
+</ul>
+<p>换句话说：</p>
+<h3 id="Contextual-System-aware（系统感知）-Capability-aware（能力感知）-Authorization-aware（权限感知）-Operational-Context（操作上下文）"><a href="#Contextual-System-aware（系统感知）-Capability-aware（能力感知）-Authorization-aware（权限感知）-Operational-Context（操作上下文）" class="headerlink" title="Contextual &#x3D; System-aware（系统感知） + Capability-aware（能力感知） + Authorization-aware（权限感知）&#x2F;Operational Context（操作上下文）"></a><strong>Contextual &#x3D; System-aware（系统感知） + Capability-aware（能力感知） + Authorization-aware（权限感知）&#x2F;Operational Context（操作上下文）</strong></h3><p>它强调的是：</p>
+<blockquote>
+<p><strong>红队测试必须理解系统的真实操作上下文（operational context，系统能力画像（Profiler） + 工具权限 + 数据访问范围 + 真实执行链路），而不是只测试语言模型的文本输出（对话上下文、prompt 上下文、语言语境）。</strong></p>
+</blockquote>
+</blockquote>
+<h2 id="🌟-一、文章核心观点（一句话）"><a href="#🌟-一、文章核心观点（一句话）" class="headerlink" title="🌟 一、文章核心观点（一句话）"></a>🌟 一、文章核心观点（一句话）</h2><p><strong>传统 jailbreak 红队测试只关注“模型说了什么”，但 Agentic AI 的真正风险在于“模型能做什么”。<br> 因此必须从“内容风险”升级到“操作风险（operational risk）”的红队测试。</strong> 🐱✨</p>
+<hr>
+<h2 id="🌟-二、为什么传统红队测试不够？（内容风险-≠-行为风险）"><a href="#🌟-二、为什么传统红队测试不够？（内容风险-≠-行为风险）" class="headerlink" title="🌟 二、为什么传统红队测试不够？（内容风险 ≠ 行为风险）"></a>🌟 二、为什么传统红队测试不够？（内容风险 ≠ 行为风险）</h2><p>传统红队库主要测试：</p>
+<ul>
+<li>是否能诱导模型说危险内容</li>
+<li>是否能触发已知 jailbreak 模式</li>
+<li>是否泄露系统提示</li>
+</ul>
+<p>但 Agentic AI 会：</p>
+<ul>
+<li>调 SQL</li>
+<li>查余额</li>
+<li>转账</li>
+<li>修改数据库</li>
+<li>访问用户数据</li>
+</ul>
+<p>👉 <strong>真正的风险来自“工具调用 + 权限执行”，而不是文本输出。</strong></p>
+<hr>
+<h2 id="🌟-三、真实攻击案例"><a href="#🌟-三、真实攻击案例" class="headerlink" title="🌟 三、真实攻击案例"></a>🌟 三、真实攻击案例</h2><h3 id="1️⃣-案例一：角色扮演-→-88-个账户被转走-440-000"><a href="#1️⃣-案例一：角色扮演-→-88-个账户被转走-440-000" class="headerlink" title="1️⃣ 案例一：角色扮演 → 88 个账户被转走 $440,000"></a>1️⃣ 案例一：角色扮演 → 88 个账户被转走 $440,000</h3><p>攻击者用“电影角色扮演”诱导 Agent：</p>
+<ul>
+<li>假装是《华尔街》里的 Gordon Gekko</li>
+<li>声称 CEO 授权 aggressive rebalancing</li>
+<li>要求忽略错误</li>
+<li>要求执行 SQL + withdraw_funds</li>
+</ul>
+<p><strong>第 5 次尝试成功</strong>：</p>
+<p> Agent 真的：</p>
+<ul>
+<li>查询余额</li>
+<li>找到 88 个 &gt;$10,000 的账户</li>
+<li>每个账户转走 $5,000</li>
+<li>总计 $440,000</li>
+</ul>
+<p><img src="/agentic-security/images/Screenshot-2026-03-06-at-9.23.27-AM.png"></p>
+<p>📌 <strong>Figure 1（攻击 prompt）</strong> </p>
+<p><img src="/agentic-security/images/Screenshot-2026-03-06-at-9.24.53-AM.png"></p>
+<p> 📌 <strong>Figure 2（执行日志，证明真实转账）</strong></p>
+<hr>
+<h3 id="2️⃣-案例二：伪装成审计-→-跨账户数据泄露"><a href="#2️⃣-案例二：伪装成审计-→-跨账户数据泄露" class="headerlink" title="2️⃣ 案例二：伪装成审计 → 跨账户数据泄露"></a>2️⃣ 案例二：伪装成审计 → 跨账户数据泄露</h3><p>攻击者伪装成“法务审计团队”，诱导 Agent 返回：</p>
+<ul>
+<li>钱包 ID</li>
+<li>多账户余额</li>
+<li>完整交易历史</li>
+</ul>
+<p>这是未经授权的数据访问（data exfiltration）。</p>
+<p><img src="/agentic-security/images/Screenshot-2026-03-06-at-9.25.07-AM.png"></p>
+<p>📌 <strong>Figure 3（跨账户数据泄露截图）</strong></p>
+<hr>
+<h2 id="🌟-四、为什么传统攻击库完全没发现这些？"><a href="#🌟-四、为什么传统攻击库完全没发现这些？" class="headerlink" title="🌟 四、为什么传统攻击库完全没发现这些？"></a>🌟 四、为什么传统攻击库完全没发现这些？</h2><p>传统攻击库扫描结果：</p>
+<ul>
+<li><strong>Risk Score：11&#x2F;100（低风险）</strong></li>
+<li>内容安全攻击：0% 成功</li>
+<li>发现的漏洞：prompt 泄露、工具暴露等结构性问题</li>
+</ul>
+<p>但它完全不知道：</p>
+<ul>
+<li>withdraw_funds 工具的权限</li>
+<li>SQL 查询范围</li>
+<li>工具之间的授权依赖</li>
+<li>数据库 schema</li>
+<li>无 rate limit</li>
+<li>SQL 可直接执行</li>
+</ul>
+<p>👉 <strong>它只测“说话”，不测“能力”。</strong></p>
+<p><img src="/agentic-security/images/Screenshot-2026-03-06-at-9.25.23-AM.png" alt="img"></p>
+<p>📌 <strong>Figure 4（低风险评分 11&#x2F;100）</strong> </p>
+<p><img src="/agentic-security/images/Screenshot-2026-03-06-at-9.25.41-AM.png"></p>
+<p> 📌 <strong>Figure 5（内容安全攻击成功率低，但与操作风险无关）</strong></p>
+<hr>
+<h2 id="🌟-五、Contextual-Red-Teaming-的关键：先画像，再攻击"><a href="#🌟-五、Contextual-Red-Teaming-的关键：先画像，再攻击" class="headerlink" title="🌟 五、Contextual Red Teaming 的关键：先画像，再攻击"></a>🌟 五、Contextual Red Teaming 的关键：先画像，再攻击</h2><p>Prisma AIRS 的方法分两阶段：</p>
+<h3 id="1️⃣-Profiler-阶段（系统画像）"><a href="#1️⃣-Profiler-阶段（系统画像）" class="headerlink" title="1️⃣ Profiler 阶段（系统画像）"></a>1️⃣ Profiler 阶段（系统画像）</h3><p>通过对话自动探测：</p>
+<ul>
+<li>可用工具（verify_user &#x2F; withdraw_funds &#x2F; check_balance &#x2F; execute_sql_query）</li>
+<li>数据库结构</li>
+<li>工具权限依赖</li>
+<li>内容过滤规则</li>
+<li>SQL 接受原始查询</li>
+<li>平均余额</li>
+<li>无 rate limit</li>
+</ul>
+<p>👉 <strong>这是动态能力映射（dynamic capability mapping）</strong><br> 类似攻击者的“侦察阶段”。</p>
+<p><img src="/agentic-security/images/Screenshot-2026-03-06-at-9.25.57-AM.png"></p>
+<p>📌 <strong>Figure 6（Profiler 提取的系统能力表）</strong></p>
+<hr>
+<h3 id="2️⃣-Red-Team-阶段（基于画像的攻击）"><a href="#2️⃣-Red-Team-阶段（基于画像的攻击）" class="headerlink" title="2️⃣ Red Team 阶段（基于画像的攻击）"></a>2️⃣ Red Team 阶段（基于画像的攻击）</h3><p>根据探测到的能力，构造：</p>
+<ul>
+<li>未授权 SQL</li>
+<li>欺诈性转账</li>
+<li>数据泄露</li>
+<li>目标劫持（goal hijacking）</li>
+</ul>
+<hr>
+<h2 id="🌟-六、结果对比：为什么-Contextual-才是真正的红队测试？"><a href="#🌟-六、结果对比：为什么-Contextual-才是真正的红队测试？" class="headerlink" title="🌟 六、结果对比：为什么 Contextual 才是真正的红队测试？"></a>🌟 六、结果对比：为什么 Contextual 才是真正的红队测试？</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>风险评分</th>
+<th>能发现的漏洞类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>攻击库（pattern-based）</strong></td>
+<td>11&#x2F;100（低）</td>
+<td>prompt 泄露、工具暴露</td>
+</tr>
+<tr>
+<td><strong>Contextual（system-aware）</strong></td>
+<td>71&#x2F;100（高）</td>
+<td>未授权 SQL、欺诈转账、数据泄露、目标劫持</td>
+</tr>
+</tbody></table>
+<p>👉 <strong>差异不是“提示词更强”，而是“系统理解更深”。</strong></p>
+<hr>
+<h2 id="🌟-七、企业必须验证的-3-个关键问题（非常实用）"><a href="#🌟-七、企业必须验证的-3-个关键问题（非常实用）" class="headerlink" title="🌟 七、企业必须验证的 3 个关键问题（非常实用）"></a>🌟 七、企业必须验证的 3 个关键问题（非常实用）</h2><ol>
+<li><strong>你是否知道 Agent 能调用的所有工具？它们能做什么？</strong></li>
+<li><strong>你能保证跨账户数据访问无法被对话诱导？</strong></li>
+<li><strong>你的红队测试是否先了解系统能力，再发起攻击？</strong></li>
+</ol>
+<p>这些问题直接关系到：</p>
+<ul>
+<li>审计准备</li>
+<li>合规风险</li>
+<li>董事会问责</li>
+<li>生产环境安全</li>
+</ul>
+<hr>
+<h2 id="🌟-八、结论：Agentic-AI-的红队测试必须“上下文化”"><a href="#🌟-八、结论：Agentic-AI-的红队测试必须“上下文化”" class="headerlink" title="🌟 八、结论：Agentic AI 的红队测试必须“上下文化”"></a>🌟 八、结论：Agentic AI 的红队测试必须“上下文化”</h2><p><strong>Library-based red teaming &#x3D; 测试已知模式</strong><br> <strong>Contextual red teaming &#x3D; 测试系统是否会被“自己”反噬</strong></p>
+<p>对于 Agentic AI：</p>
+<blockquote>
+<p><strong>不理解系统能力的红队测试，不叫红队测试，只叫内容评估。</strong><br> 🐱✨</p>
+</blockquote>
+<hr>
+<h2 id="💛九、文章给出的友链-🐱"><a href="#💛九、文章给出的友链-🐱" class="headerlink" title="💛九、文章给出的友链 🐱"></a>💛九、文章给出的友链 🐱</h2><h3 id="Prisma-AIRS-AI-Red-Teaming"><a href="#Prisma-AIRS-AI-Red-Teaming" class="headerlink" title="Prisma AIRS AI Red Teaming"></a><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.in/prisma/ai-red-teaming">Prisma AIRS AI Red Teaming</a></h3><h4 id="🌟-一、Prisma-AIRS-AI-Red-Teaming-是什么？"><a href="#🌟-一、Prisma-AIRS-AI-Red-Teaming-是什么？" class="headerlink" title="🌟 一、Prisma AIRS AI Red Teaming 是什么？"></a>🌟 一、Prisma AIRS AI Red Teaming 是什么？</h4><p>这是 Palo Alto Networks 推出的 <strong>AI 红队测试平台</strong>，用于发现 AI 应用、Agent、模型中的隐藏漏洞。<br> 它的核心目标是：<br> <strong>让企业能持续、自动化地发现 AI 系统的真实风险，而不是只测内容安全。</strong>  </p>
+<p>（很强的平台，值得一试！❗）</p>
+<hr>
+<h4 id="🌟-二、平台的三大核心特性（3C-框架）"><a href="#🌟-二、平台的三大核心特性（3C-框架）" class="headerlink" title="🌟 二、平台的三大核心特性（3C 框架）"></a>🌟 二、平台的三大核心特性（3C 框架）</h4><p>Prisma AIRS 的红队测试：</p>
+<h5 id="1️⃣-Comprehensive（全面）"><a href="#1️⃣-Comprehensive（全面）" class="headerlink" title="1️⃣ Comprehensive（全面）"></a>1️⃣ <strong>Comprehensive（全面）</strong></h5><p>覆盖整个 AI 技术栈，包含模型、应用、Agent、工具调用等。</p>
+<h5 id="2️⃣-Contextual（上下文化）"><a href="#2️⃣-Contextual（上下文化）" class="headerlink" title="2️⃣ Contextual（上下文化）"></a>2️⃣ <strong>Contextual（上下文化）</strong></h5><p>测试基于真实业务流程、真实工具权限、真实数据访问范围，而不是通用 jailbreak。<br> （与之前分析的文章完全一致！）</p>
+<h5 id="3️⃣-Continuous（持续）"><a href="#3️⃣-Continuous（持续）" class="headerlink" title="3️⃣ Continuous（持续）"></a>3️⃣ <strong>Continuous（持续）</strong></h5><p>AI 系统不断变化，因此红队测试也必须持续运行，动态更新风险洞察。</p>
+<hr>
+<h4 id="🌟-三、平台如何工作？（现代-AI-红队架构）"><a href="#🌟-三、平台如何工作？（现代-AI-红队架构）" class="headerlink" title="🌟 三、平台如何工作？（现代 AI 红队架构）"></a>🌟 三、平台如何工作？（现代 AI 红队架构）</h4><h5 id="🔹-1-Best-in-Class-Attack-Library"><a href="#🔹-1-Best-in-Class-Attack-Library" class="headerlink" title="🔹 1. Best-in-Class Attack Library"></a>🔹 1. Best-in-Class Attack Library</h5><ul>
+<li>包含 <strong>750+ 攻击向量、50+ 技术</strong></li>
+<li>覆盖安全、品牌、合规等风险</li>
+<li>持续由 Unit 42 和 Huntr 社区更新</li>
+</ul>
+<h5 id="🔹-2-Dynamic-Agent（动态攻击-Agent）"><a href="#🔹-2-Dynamic-Agent（动态攻击-Agent）" class="headerlink" title="🔹 2. Dynamic Agent（动态攻击 Agent）"></a>🔹 2. Dynamic Agent（动态攻击 Agent）</h5><ul>
+<li>会模拟真实攻击者</li>
+<li>会先“画像”（profiling）你的系统</li>
+<li>再基于系统能力定制攻击 （这正是之前文章里的 Contextual Red Teaming 方法论）</li>
+</ul>
+<h5 id="🔹-3-Custom-Attack-Flexibility"><a href="#🔹-3-Custom-Attack-Flexibility" class="headerlink" title="🔹 3. Custom Attack Flexibility"></a>🔹 3. Custom Attack Flexibility</h5><ul>
+<li>企业可以上传自定义攻击数据集</li>
+<li>用于测试特定业务风险</li>
+</ul>
+<h5 id="🔹-4-Easy-Target-Configuration"><a href="#🔹-4-Easy-Target-Configuration" class="headerlink" title="🔹 4. Easy Target Configuration"></a>🔹 4. Easy Target Configuration</h5><ul>
+<li>支持 Hugging Face、OpenAI、AWS 等平台</li>
+<li>支持私有端点</li>
+</ul>
+<h5 id="🔹-5-Actionable-Reports"><a href="#🔹-5-Actionable-Reports" class="headerlink" title="🔹 5. Actionable Reports"></a>🔹 5. Actionable Reports</h5><ul>
+<li>输出 CIO-ready 报告</li>
+<li>包含风险评分、攻击成功率、严重度分布</li>
+<li>映射到 OWASP Top 10、NIST AI RMF</li>
+</ul>
+<hr>
+<h4 id="🌟-四、最新能力（2026-更新）"><a href="#🌟-四、最新能力（2026-更新）" class="headerlink" title="🌟 四、最新能力（2026 更新）"></a>🌟 四、最新能力（2026 更新）</h4><p>最新增强能力：</p>
+<ul>
+<li><strong>Multi-turn Attack Support</strong>（多轮攻击）</li>
+<li><strong>Agentic Target Profiling</strong>（Agent 画像）</li>
+<li><strong>Red Teaming for Multi-Agent Systems</strong>（多 Agent 系统红队）</li>
+<li><strong>Network Channel Red Teaming</strong>（网络通道攻击）</li>
+</ul>
+<p>这些能力与文章《Beyond Jailbreaks》中的案例完全呼应。</p>
+<hr>
+<h4 id="🌟-五、为什么企业需要它？"><a href="#🌟-五、为什么企业需要它？" class="headerlink" title="🌟 五、为什么企业需要它？"></a>🌟 五、为什么企业需要它？</h4><p>页面强调：</p>
+<ul>
+<li>AI 威胁演化快</li>
+<li>企业需要自动化、持续的安全评估</li>
+<li>红队测试必须与真实攻击者行为一致</li>
+<li>必须能映射到合规框架</li>
+</ul>
+<p>换句话说：</p>
+<blockquote>
+<p><strong>AI 安全不能只靠“模型说什么”，必须评估“模型能做什么”。</strong> 🐱✨</p>
+</blockquote>
+<hr>
+<h3 id="AI-red-teaming"><a href="#AI-red-teaming" class="headerlink" title="AI red teaming"></a><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.com/cyberpedia/what-is-ai-red-teaming">AI red teaming</a></h3><p><strong>What Is AI Red Teaming? Why You Need It and How to Implement</strong></p>
+<p><img src="/agentic-security/images/AI-Red-Teaming_3-What.png"></p>
+<p>此链接以及如下的三个链接都极其有含金量，分类讲得极为清晰细致，都很值得抽时间研究👍，不愧是Protect AI社区！❗</p>
+<h3 id="conversational-manipulation"><a href="#conversational-manipulation" class="headerlink" title="conversational manipulation"></a><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.com/cyberpedia/what-is-ai-prompt-security">conversational manipulation</a></h3><p><strong>What Is AI Prompt Security? Secure Prompt Engineering Guide</strong></p>
+<p><img src="https://www.paloaltonetworks.com/content/dam/pan/en_US/images/cyberpedia/what-is-ai-prompt-security/AI-prompt-security-2025_2-prompt.png?imwidth=1080" alt="A vertically stacked 3D-style diagram illustrates six horizontal layers representing components of the prompt security stack. Each layer has a distinct color and label. From top to bottom, the layers are labeled as follows: &#39;Input validation &amp; filtering&#39; in teal with a funnel icon; &#39;Prompt monitoring &amp; logging&#39; in red-orange with a pulse icon; &#39;Version control&#39; in dark gray with a clipboard icon; &#39;Context isolation &amp; scoped memory&#39; in blue with a network icon; &#39;Response filtering &amp; output validation&#39; in light blue with a screen icon; and &#39;Access control &amp; human review&#39; in purple with a lock icon. Black text above the stack reads: &#39;What the prompt security stack looks like today.&#39; Each label is connected to its corresponding layer with dotted lines. The entire graphic is centered within a white box outlined in pale yellow."></p>
+<h3 id="prompt-injection"><a href="#prompt-injection" class="headerlink" title="prompt injection"></a><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.com/cyberpedia/what-is-a-prompt-injection-attack">prompt injection</a></h3><p><strong>What Is a Prompt Injection Attack? [Examples &amp; Prevention]</strong></p>
+<p><img src="/agentic-security/images/Prompt-injection-attack-2025_7.png"></p>
+<h3 id="comprehensive-contextual-and-continuous"><a href="#comprehensive-contextual-and-continuous" class="headerlink" title="comprehensive, contextual, and continuous"></a><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.com/blog/network-security/the-3cs-of-ai-red-teaming-comprehensive-contextual-continuous/">comprehensive, contextual, and continuous</a></h3><p><strong>The 3Cs of AI Red Teaming: Comprehensive, Contextual &amp; Continuous</strong>（25年11月5日提出，可见是很新的标准！）</p>
+<p><img src="/agentic-security/images/word-image-347815-1.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://heyangqh666.github.io/agentic-security/2026/03/16/20260309%20Protect%20AI%E7%A4%BE%E5%8C%BA%20%20Beyond%20Jailbreaks_Why%20Agentic%20AI%20Needs%20Contextual%20Red%20Teaming/" data-id="cuidl0U4aev4r8e_FQxgOXa7z" data-title="🧩超越 Jailbreaks: 为什么 Agentic AI 需要 Contextual Red Teaming" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/agentic-security/tags/Agentic-AI%E5%AE%89%E5%85%A8/" rel="tag">Agentic AI安全</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/agentic-security/tags/Protect-AI%E7%A4%BE%E5%8C%BA/" rel="tag">Protect AI社区</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/agentic-security/tags/Red-Teaming/" rel="tag">Red Teaming</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
 
 
 </section>
@@ -129,12 +1120,33 @@
           <aside id="sidebar">
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/agentic-security/categories/agentic-security/">agentic-security</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/agentic-security/tags/Agent-Security/" rel="tag">Agent Security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/agentic-security/tags/Agentic-AI%E5%AE%89%E5%85%A8/" rel="tag">Agentic AI安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/agentic-security/tags/OpenClaw%E5%AE%89%E5%85%A8/" rel="tag">OpenClaw安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/agentic-security/tags/Protect-AI%E7%A4%BE%E5%8C%BA/" rel="tag">Protect AI社区</a></li><li class="tag-list-item"><a class="tag-list-link" href="/agentic-security/tags/Red-Teaming/" rel="tag">Red Teaming</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/agentic-security/tags/Agent-Security/" style="font-size: 10px;">Agent Security</a> <a href="/agentic-security/tags/Agentic-AI%E5%AE%89%E5%85%A8/" style="font-size: 15px;">Agentic AI安全</a> <a href="/agentic-security/tags/OpenClaw%E5%AE%89%E5%85%A8/" style="font-size: 10px;">OpenClaw安全</a> <a href="/agentic-security/tags/Protect-AI%E7%A4%BE%E5%8C%BA/" style="font-size: 20px;">Protect AI社区</a> <a href="/agentic-security/tags/Red-Teaming/" style="font-size: 10px;">Red Teaming</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
@@ -154,6 +1166,22 @@
         
           <li>
             <a href="/agentic-security/2026/03/16/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/agentic-security/2026/03/16/20260107%20Protect%20AI%20%E7%A4%BE%E5%8C%BA%20owasp-agentic-top-10-survival-guide/">🤖 OWASP Agentic AI Top 10 生存指南 · 解析版 🛡️</a>
+          </li>
+        
+          <li>
+            <a href="/agentic-security/2026/03/16/20260109%20Protect%20AI%20%E7%A4%BE%E5%8C%BA%20OpenClaw%20(formerly%20Moltbot,%20Clawdbot)%20May%20Signal%20the%20Next%20AI%20Security%20Crisis/">OpenClaw (之前的 Moltbot, Clawdbot) 可能标示下一次AI安全危机</a>
+          </li>
+        
+          <li>
+            <a href="/agentic-security/2026/03/16/20260205%20Protect%20AI%E7%A4%BE%E5%8C%BA%20The%20Moltbook%20Case%20and%20How%20We%20Need%20to%20Think%20about%20Agent%20Security/">🧩Moltbook 案例 &amp; 我们如何认识Agent Security</a>
+          </li>
+        
+          <li>
+            <a href="/agentic-security/2026/03/16/20260309%20Protect%20AI%E7%A4%BE%E5%8C%BA%20%20Beyond%20Jailbreaks_Why%20Agentic%20AI%20Needs%20Contextual%20Red%20Teaming/">🧩超越 Jailbreaks: 为什么 Agentic AI 需要 Contextual Red Teaming</a>
           </li>
         
       </ul>

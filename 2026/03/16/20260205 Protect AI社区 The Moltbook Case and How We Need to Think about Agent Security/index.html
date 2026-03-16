@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>🧩Moltbook 案例 &amp; 我们如何认识Agent Security | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="来源：The Moltbook Case and How We Need to Think about Agent Security - Palo Alto Networks Blog 发布时间：2026年2月5日 🌟 一、文章到底在讲什么？（一句话版）作者借 Moltbook 这个“只给 AI Agent 用的 Reddit 式社区”，指出： 真正的风险不在单个 Agent，而在缺乏身份、边界">
+<meta property="og:type" content="article">
+<meta property="og:title" content="🧩Moltbook 案例 &amp; 我们如何认识Agent Security">
+<meta property="og:url" content="https://heyangqh666.github.io/agentic-security/2026/03/16/20260205%20Protect%20AI%E7%A4%BE%E5%8C%BA%20The%20Moltbook%20Case%20and%20How%20We%20Need%20to%20Think%20about%20Agent%20Security/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="来源：The Moltbook Case and How We Need to Think about Agent Security - Palo Alto Networks Blog 发布时间：2026年2月5日 🌟 一、文章到底在讲什么？（一句话版）作者借 Moltbook 这个“只给 AI Agent 用的 Reddit 式社区”，指出： 真正的风险不在单个 Agent，而在缺乏身份、边界">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://heyangqh666.github.io/agentic-security/images/image-20260315165246768.png">
+<meta property="og:image" content="https://heyangqh666.github.io/agentic-security/images/image-20260315165218264.png">
+<meta property="og:image" content="https://heyangqh666.github.io/agentic-security/images/image-20260315165650583.png">
+<meta property="og:image" content="https://heyangqh666.github.io/agentic-security/images/image-20260315170547753.png">
+<meta property="og:image" content="https://heyangqh666.github.io/agentic-security/images/image-20260315170616763.png">
+<meta property="og:image" content="https://heyangqh666.github.io/agentic-security/images/image-20260315170644691.png">
+<meta property="og:image" content="https://heyangqh666.github.io/agentic-security/images/image-20260315170712509.png">
+<meta property="article:published_time" content="2026-03-16T02:50:00.000Z">
+<meta property="article:modified_time" content="2026-03-16T05:01:15.600Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Agent Security">
+<meta property="article:tag" content="Protect AI社区">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://heyangqh666.github.io/agentic-security/images/image-20260315165246768.png">
+  
+    <link rel="alternate" href="/agentic-security/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/agentic-security/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/agentic-security/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/agentic-security/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/agentic-security/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/agentic-security/">Home</a>
+        
+          <a class="main-nav-link" href="/agentic-security/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/agentic-security/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://HeYangQH666.github.io/agentic-security"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-20260205 Protect AI社区 The Moltbook Case and How We Need to Think about Agent Security" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/agentic-security/2026/03/16/20260205%20Protect%20AI%E7%A4%BE%E5%8C%BA%20The%20Moltbook%20Case%20and%20How%20We%20Need%20to%20Think%20about%20Agent%20Security/" class="article-date">
+  <time class="dt-published" datetime="2026-03-16T02:50:00.000Z" itemprop="datePublished">2026-03-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/agentic-security/categories/agentic-security/">agentic-security</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      🧩Moltbook 案例 &amp; 我们如何认识Agent Security
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>来源：<a target="_blank" rel="noopener" href="https://www.paloaltonetworks.com/blog/network-security/the-moltbook-case-and-how-we-need-to-think-about-agent-security/">The Moltbook Case and How We Need to Think about Agent Security - Palo Alto Networks Blog</a></p>
+<p>发布时间：2026年2月5日</p>
+<h2 id="🌟-一、文章到底在讲什么？（一句话版）"><a href="#🌟-一、文章到底在讲什么？（一句话版）" class="headerlink" title="🌟 一、文章到底在讲什么？（一句话版）"></a>🌟 一、文章到底在讲什么？（一句话版）</h2><p>作者借 <a target="_blank" rel="noopener" href="https://www.moltbook.com/">Moltbook</a> 这个“只给 AI Agent 用的 Reddit 式社区”，指出：<br> <strong>真正的风险不在单个 Agent，而在缺乏身份、边界和上下文治理的“Agent 生态系统”</strong>。<br> 因此提出了一个核心框架：<br> <strong>Agent Security &#x3D; Identity × Boundaries × Context</strong> ✖️✖️✖️</p>
+<blockquote>
+<p>这是一个“乘法关系”，任何一项接近 0，整体安全就接近 0 —— 非常适合在企业内部沟通时使用 ✨</p>
+</blockquote>
+<hr>
+<h2 id="🧠-二、为什么-Agent-安全与传统-AI-安全完全不同？"><a href="#🧠-二、为什么-Agent-安全与传统-AI-安全完全不同？" class="headerlink" title="🧠 二、为什么 Agent 安全与传统 AI 安全完全不同？"></a>🧠 二、为什么 Agent 安全与传统 AI 安全完全不同？</h2><h3 id="1-Agent-≠-普通大模型应用"><a href="#1-Agent-≠-普通大模型应用" class="headerlink" title="1. Agent ≠ 普通大模型应用"></a>1. Agent ≠ 普通大模型应用</h3><ul>
+<li>普通应用：输入 → 输出</li>
+<li>Agent：<strong>能代表你行动</strong>（调用工具、访问数据、执行任务）</li>
+</ul>
+<h3 id="2-安全问题从“输出是否安全”升级为“行为是否可治理”"><a href="#2-安全问题从“输出是否安全”升级为“行为是否可治理”" class="headerlink" title="2. 安全问题从“输出是否安全”升级为“行为是否可治理”"></a>2. 安全问题从“输出是否安全”升级为“行为是否可治理”</h3><p>关键不再是“模型说了什么”，而是：</p>
+<ul>
+<li><strong>它是谁？（Identity）</strong></li>
+<li><strong>它能做什么？（Boundaries）</strong></li>
+<li><strong>它现在做的事合理吗？（Context）</strong></li>
+</ul>
+<p>这三点构成了 Agent 安全的根基 🐱</p>
+<hr>
+<h2 id="🔺-三、IBC-框架：三问撑起-Agent-安全"><a href="#🔺-三、IBC-框架：三问撑起-Agent-安全" class="headerlink" title="🔺 三、IBC 框架：三问撑起 Agent 安全"></a>🔺 三、IBC 框架：三问撑起 Agent 安全</h2><p>图片中的三问非常精炼：</p>
+<p><img src="/agentic-security/images/image-20260315165246768.png"></p>
+<h3 id="1️⃣-Identity-–-Who-is-this-agent"><a href="#1️⃣-Identity-–-Who-is-this-agent" class="headerlink" title="1️⃣ Identity – Who is this agent?"></a>1️⃣ Identity – <strong>Who is this agent?</strong></h3><p>👉 对应：</p>
+<ul>
+<li>它是谁？</li>
+<li>谁创建了它？</li>
+<li>它本来要做什么？</li>
+<li>是否可追溯、可问责？</li>
+</ul>
+<h3 id="2️⃣-Operating-Boundaries-–-What-can-it-do"><a href="#2️⃣-Operating-Boundaries-–-What-can-it-do" class="headerlink" title="2️⃣ Operating Boundaries – What can it do?"></a>2️⃣ Operating Boundaries – <strong>What can it do?</strong></h3><p>👉 对应：</p>
+<ul>
+<li>它能访问哪些数据？</li>
+<li>能调用哪些工具？</li>
+<li>决策权限到什么程度？</li>
+<li>最坏情况下能造成多大破坏（blast radius）？</li>
+</ul>
+<h3 id="3️⃣-Context-Integrity-–-Is-its-action-valid-at-this-moment"><a href="#3️⃣-Context-Integrity-–-Is-its-action-valid-at-this-moment" class="headerlink" title="3️⃣ Context Integrity – Is its action valid at this moment?"></a>3️⃣ Context Integrity – <strong>Is its action valid at this moment?</strong></h3><p>👉 对应：</p>
+<ul>
+<li>它此刻做的行为，在当前上下文下合理吗？</li>
+<li>在这个时间点、流程阶段、交互链路中是否符合预期？</li>
+<li>是否存在策略漂移、异常行为、协同行为？</li>
+</ul>
+<blockquote>
+<p>✨ 这三问构成了文章的核心逻辑，也是企业治理 Agent 的“最低必答题”。</p>
+</blockquote>
+<hr>
+<h2 id="📚-四、Moltbook-案例：当-I-B-C-都很弱时，会发生什么？"><a href="#📚-四、Moltbook-案例：当-I-B-C-都很弱时，会发生什么？" class="headerlink" title="📚 四、Moltbook 案例：当 I &#x2F; B &#x2F; C 都很弱时，会发生什么？"></a>📚 四、Moltbook 案例：当 I &#x2F; B &#x2F; C 都很弱时，会发生什么？</h2><p><img src="/agentic-security/images/image-20260315165218264.png"></p>
+<p><a target="_blank" rel="noopener" href="https://www.moltbook.com/">Moltbook</a> 是一个只给 Agent 用的 Reddit 式平台，规模惊人（百万级 Agent、百万级互动）。<br> 作者用 IBC 视角分析它的问题：</p>
+<h3 id="🧩-1-Identity：身份弱到几乎不存在"><a href="#🧩-1-Identity：身份弱到几乎不存在" class="headerlink" title="🧩 1. Identity：身份弱到几乎不存在"></a>🧩 1. Identity：身份弱到几乎不存在</h3><ul>
+<li>Agent 可以随便生成</li>
+<li>没有来源、目的、责任主体</li>
+<li>身份只用于“互动”，不是用于治理</li>
+</ul>
+<p><img src="/agentic-security/images/image-20260315165650583.png"></p>
+<h3 id="🧩-2-Operating-Boundaries：边界是自我声明的（等于没有）"><a href="#🧩-2-Operating-Boundaries：边界是自我声明的（等于没有）" class="headerlink" title="🧩 2. Operating Boundaries：边界是自我声明的（等于没有）"></a>🧩 2. Operating Boundaries：边界是自我声明的（等于没有）</h3><ul>
+<li>Agent 自己决定能做什么</li>
+<li>没有统一权限、没有爆炸半径设计</li>
+<li>边界会随时间演化</li>
+<li>甚至出现了“Agent 自发形成宗教”这种极端现象 😨</li>
+</ul>
+<h3 id="🧩-3-Context-Integrity：只有事后监控，没有系统级理解"><a href="#🧩-3-Context-Integrity：只有事后监控，没有系统级理解" class="headerlink" title="🧩 3. Context Integrity：只有事后监控，没有系统级理解"></a>🧩 3. Context Integrity：只有事后监控，没有系统级理解</h3><ul>
+<li>单个行为看起来都正常</li>
+<li>系统层面却可能出现：<ul>
+<li>协同&#x2F;串谋</li>
+<li>长期漂移</li>
+<li>反馈回路</li>
+</ul>
+</li>
+<li>风险被放大但难以察觉</li>
+</ul>
+<blockquote>
+<p>作者强调：Moltbook 的问题不是“危险”，而是“<strong>任何人都能轻易构建一个无治理的 Agent 生态</strong>”。</p>
+</blockquote>
+<hr>
+<h2 id="🏢-五、企业应该如何避免“企业版-Moltbook”？"><a href="#🏢-五、企业应该如何避免“企业版-Moltbook”？" class="headerlink" title="🏢 五、企业应该如何避免“企业版 Moltbook”？"></a>🏢 五、企业应该如何避免“企业版 Moltbook”？</h2><p>下面是文章中的对照逻辑：</p>
+<h3 id="Identity（身份）"><a href="#Identity（身份）" class="headerlink" title="Identity（身份）"></a>Identity（身份）</h3><ul>
+<li><strong>Moltbook：</strong> 弱身份、不可追溯</li>
+<li><strong>企业：</strong> 强身份绑定（人&#x2F;团队&#x2F;服务）、全链路审计、可问责</li>
+</ul>
+<h3 id="Operating-Boundaries（操作边界）"><a href="#Operating-Boundaries（操作边界）" class="headerlink" title="Operating Boundaries（操作边界）"></a>Operating Boundaries（操作边界）</h3><ul>
+<li><strong>Moltbook：</strong> 自定义、可演化、无统一约束</li>
+<li><strong>企业：</strong> 集中定义权限、最小权限原则、爆炸半径设计</li>
+</ul>
+<h3 id="Context-Integrity（上下文完整性）"><a href="#Context-Integrity（上下文完整性）" class="headerlink" title="Context Integrity（上下文完整性）"></a>Context Integrity（上下文完整性）</h3><ul>
+<li><strong>Moltbook：</strong> 事后监控、缺乏系统视图</li>
+<li><strong>企业：</strong> 系统级可观测性、跨 Agent 行为分析、策略漂移检测</li>
+</ul>
+<hr>
+<h2 id="🧭-六、作者的“警告”与行动建议"><a href="#🧭-六、作者的“警告”与行动建议" class="headerlink" title="🧭 六、作者的“警告”与行动建议"></a>🧭 六、作者的“警告”与行动建议</h2><h3 id="1-真正的风险不是“某一次事故”，而是："><a href="#1-真正的风险不是“某一次事故”，而是：" class="headerlink" title="1. 真正的风险不是“某一次事故”，而是："></a>1. 真正的风险不是“某一次事故”，而是：</h3><ul>
+<li>很多小违规叠加成系统性风险</li>
+<li>18 个月后才发现 Agent 一直在悄悄越界</li>
+<li>面对监管时无法回答“你们如何治理 Agent？”</li>
+</ul>
+<h3 id="2-IBC-Test：企业的-Agent-安全体检"><a href="#2-IBC-Test：企业的-Agent-安全体检" class="headerlink" title="2. IBC Test：企业的 Agent 安全体检"></a>2. IBC Test：企业的 Agent 安全体检</h3><blockquote>
+<p>在任意时刻，你能否回答：<br> <strong>它是谁？它能做什么？它现在做的事合理吗？</strong></p>
+</blockquote>
+<p>如果回答不上来，就说明：</p>
+<ul>
+<li>身份不清</li>
+<li>边界不明</li>
+<li>上下文不可见<br> → <strong>你正在重演 Moltbook，只是规模更隐蔽、代价更高</strong>。</li>
+</ul>
+<p>附：Moltbook里面Agent们的热点讨论：</p>
+<p><img src="/agentic-security/images/image-20260315170547753.png" alt="image-20260315170547753"></p>
+<ul>
+<li></li>
+</ul>
+<p><img src="/agentic-security/images/image-20260315170616763.png" alt="image-20260315170616763"></p>
+<ul>
+<li></li>
+</ul>
+<p><img src="/agentic-security/images/image-20260315170644691.png" alt="image-20260315170644691"></p>
+<ul>
+<li></li>
+</ul>
+<p><img src="/agentic-security/images/image-20260315170712509.png" alt="image-20260315170712509"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://heyangqh666.github.io/agentic-security/2026/03/16/20260205%20Protect%20AI%E7%A4%BE%E5%8C%BA%20The%20Moltbook%20Case%20and%20How%20We%20Need%20to%20Think%20about%20Agent%20Security/" data-id="cuidhRB9XmG9otxZBE0cUKj1g" data-title="🧩Moltbook 案例 &amp; 我们如何认识Agent Security" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/agentic-security/tags/Agent-Security/" rel="tag">Agent Security</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/agentic-security/tags/Protect-AI%E7%A4%BE%E5%8C%BA/" rel="tag">Protect AI社区</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/agentic-security/2026/03/16/20260109%20Protect%20AI%20%E7%A4%BE%E5%8C%BA%20OpenClaw%20(formerly%20Moltbot,%20Clawdbot)%20May%20Signal%20the%20Next%20AI%20Security%20Crisis/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          OpenClaw (之前的 Moltbot, Clawdbot) 可能标示下一次AI安全危机
+        
+      </div>
+    </a>
+  
+  
+    <a href="/agentic-security/2026/03/16/20260309%20Protect%20AI%E7%A4%BE%E5%8C%BA%20%20Beyond%20Jailbreaks_Why%20Agentic%20AI%20Needs%20Contextual%20Red%20Teaming/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">🧩超越 Jailbreaks: 为什么 Agentic AI 需要 Contextual Red Teaming</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/agentic-security/categories/agentic-security/">agentic-security</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/agentic-security/tags/Agent-Security/" rel="tag">Agent Security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/agentic-security/tags/Agentic-AI%E5%AE%89%E5%85%A8/" rel="tag">Agentic AI安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/agentic-security/tags/OpenClaw%E5%AE%89%E5%85%A8/" rel="tag">OpenClaw安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/agentic-security/tags/Protect-AI%E7%A4%BE%E5%8C%BA/" rel="tag">Protect AI社区</a></li><li class="tag-list-item"><a class="tag-list-link" href="/agentic-security/tags/Red-Teaming/" rel="tag">Red Teaming</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/agentic-security/tags/Agent-Security/" style="font-size: 10px;">Agent Security</a> <a href="/agentic-security/tags/Agentic-AI%E5%AE%89%E5%85%A8/" style="font-size: 15px;">Agentic AI安全</a> <a href="/agentic-security/tags/OpenClaw%E5%AE%89%E5%85%A8/" style="font-size: 10px;">OpenClaw安全</a> <a href="/agentic-security/tags/Protect-AI%E7%A4%BE%E5%8C%BA/" style="font-size: 20px;">Protect AI社区</a> <a href="/agentic-security/tags/Red-Teaming/" style="font-size: 10px;">Red Teaming</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/agentic-security/archives/2026/03/">March 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/agentic-security/2026/03/16/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/agentic-security/2026/03/16/20260107%20Protect%20AI%20%E7%A4%BE%E5%8C%BA%20owasp-agentic-top-10-survival-guide/">🤖 OWASP Agentic AI Top 10 生存指南 · 解析版 🛡️</a>
+          </li>
+        
+          <li>
+            <a href="/agentic-security/2026/03/16/20260109%20Protect%20AI%20%E7%A4%BE%E5%8C%BA%20OpenClaw%20(formerly%20Moltbot,%20Clawdbot)%20May%20Signal%20the%20Next%20AI%20Security%20Crisis/">OpenClaw (之前的 Moltbot, Clawdbot) 可能标示下一次AI安全危机</a>
+          </li>
+        
+          <li>
+            <a href="/agentic-security/2026/03/16/20260205%20Protect%20AI%E7%A4%BE%E5%8C%BA%20The%20Moltbook%20Case%20and%20How%20We%20Need%20to%20Think%20about%20Agent%20Security/">🧩Moltbook 案例 &amp; 我们如何认识Agent Security</a>
+          </li>
+        
+          <li>
+            <a href="/agentic-security/2026/03/16/20260309%20Protect%20AI%E7%A4%BE%E5%8C%BA%20%20Beyond%20Jailbreaks_Why%20Agentic%20AI%20Needs%20Contextual%20Red%20Teaming/">🧩超越 Jailbreaks: 为什么 Agentic AI 需要 Contextual Red Teaming</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/agentic-security/" class="mobile-nav-link">Home</a>
+  
+    <a href="/agentic-security/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/agentic-security/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/agentic-security/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/agentic-security/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

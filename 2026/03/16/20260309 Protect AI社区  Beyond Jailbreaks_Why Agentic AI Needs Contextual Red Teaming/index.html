@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>🧩超越 Jailbreaks: 为什么 Agentic AI 需要 Contextual Red Teaming | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="来源：Beyond Jailbreaks: Why Agentic AI Needs Contextual Red Teaming - Palo Alto Networks Blog 发布时间：2026年3月9日 提前解释：  在这篇文章里，Contextual ≠ 语言上下文（linguistic context）   它指的是： “基于系统真实能力、权限、工具、数据范围的上下文化安全测试”也就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="🧩超越 Jailbreaks: 为什么 Agentic AI 需要 Contextual Red Teaming">
+<meta property="og:url" content="https://heyangqh666.github.io/agentic-security/2026/03/16/20260309%20Protect%20AI%E7%A4%BE%E5%8C%BA%20%20Beyond%20Jailbreaks_Why%20Agentic%20AI%20Needs%20Contextual%20Red%20Teaming/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="来源：Beyond Jailbreaks: Why Agentic AI Needs Contextual Red Teaming - Palo Alto Networks Blog 发布时间：2026年3月9日 提前解释：  在这篇文章里，Contextual ≠ 语言上下文（linguistic context）   它指的是： “基于系统真实能力、权限、工具、数据范围的上下文化安全测试”也就">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://heyangqh666.github.io/agentic-security/images/Screenshot-2026-03-06-at-9.23.27-AM.png">
+<meta property="og:image" content="https://heyangqh666.github.io/agentic-security/images/Screenshot-2026-03-06-at-9.24.53-AM.png">
+<meta property="og:image" content="https://heyangqh666.github.io/agentic-security/images/Screenshot-2026-03-06-at-9.25.07-AM.png">
+<meta property="og:image" content="https://heyangqh666.github.io/agentic-security/images/Screenshot-2026-03-06-at-9.25.23-AM.png">
+<meta property="og:image" content="https://heyangqh666.github.io/agentic-security/images/Screenshot-2026-03-06-at-9.25.41-AM.png">
+<meta property="og:image" content="https://heyangqh666.github.io/agentic-security/images/Screenshot-2026-03-06-at-9.25.57-AM.png">
+<meta property="og:image" content="https://heyangqh666.github.io/agentic-security/images/AI-Red-Teaming_3-What.png">
+<meta property="og:image" content="https://www.paloaltonetworks.com/content/dam/pan/en_US/images/cyberpedia/what-is-ai-prompt-security/AI-prompt-security-2025_2-prompt.png?imwidth=1080">
+<meta property="og:image" content="https://heyangqh666.github.io/agentic-security/images/Prompt-injection-attack-2025_7.png">
+<meta property="og:image" content="https://heyangqh666.github.io/agentic-security/images/word-image-347815-1.png">
+<meta property="article:published_time" content="2026-03-16T02:50:00.000Z">
+<meta property="article:modified_time" content="2026-03-16T05:01:13.275Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Agentic AI安全">
+<meta property="article:tag" content="Protect AI社区">
+<meta property="article:tag" content="Red Teaming">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://heyangqh666.github.io/agentic-security/images/Screenshot-2026-03-06-at-9.23.27-AM.png">
+  
+    <link rel="alternate" href="/agentic-security/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/agentic-security/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/agentic-security/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/agentic-security/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/agentic-security/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/agentic-security/">Home</a>
+        
+          <a class="main-nav-link" href="/agentic-security/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/agentic-security/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://HeYangQH666.github.io/agentic-security"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-20260309 Protect AI社区  Beyond Jailbreaks_Why Agentic AI Needs Contextual Red Teaming" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/agentic-security/2026/03/16/20260309%20Protect%20AI%E7%A4%BE%E5%8C%BA%20%20Beyond%20Jailbreaks_Why%20Agentic%20AI%20Needs%20Contextual%20Red%20Teaming/" class="article-date">
+  <time class="dt-published" datetime="2026-03-16T02:50:00.000Z" itemprop="datePublished">2026-03-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/agentic-security/categories/agentic-security/">agentic-security</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      🧩超越 Jailbreaks: 为什么 Agentic AI 需要 Contextual Red Teaming
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>来源：<a target="_blank" rel="noopener" href="https://www.paloaltonetworks.com/blog/network-security/beyond-jailbreaks-why-agentic-ai-needs-contextual-red-teaming/">Beyond Jailbreaks: Why Agentic AI Needs Contextual Red Teaming - Palo Alto Networks Blog</a></p>
+<p>发布时间：2026年3月9日</p>
+<p><em>提前解释：</em></p>
+<blockquote>
+<p>在这篇文章里，<strong>Contextual ≠ 语言上下文（linguistic context）</strong>   它指的是：</p>
+<h2 id="“基于系统真实能力、权限、工具、数据范围的上下文化安全测试”"><a href="#“基于系统真实能力、权限、工具、数据范围的上下文化安全测试”" class="headerlink" title="“基于系统真实能力、权限、工具、数据范围的上下文化安全测试”"></a><strong>“基于系统真实能力、权限、工具、数据范围的上下文化安全测试”</strong></h2><p>也就是：</p>
+<ul>
+<li>先理解系统能做什么</li>
+<li>再基于这些能力构造攻击</li>
+<li>不是用通用 jailbreak prompt 去乱撞</li>
+</ul>
+<p>换句话说：</p>
+<h3 id="Contextual-System-aware（系统感知）-Capability-aware（能力感知）-Authorization-aware（权限感知）-Operational-Context（操作上下文）"><a href="#Contextual-System-aware（系统感知）-Capability-aware（能力感知）-Authorization-aware（权限感知）-Operational-Context（操作上下文）" class="headerlink" title="Contextual &#x3D; System-aware（系统感知） + Capability-aware（能力感知） + Authorization-aware（权限感知）&#x2F;Operational Context（操作上下文）"></a><strong>Contextual &#x3D; System-aware（系统感知） + Capability-aware（能力感知） + Authorization-aware（权限感知）&#x2F;Operational Context（操作上下文）</strong></h3><p>它强调的是：</p>
+<blockquote>
+<p><strong>红队测试必须理解系统的真实操作上下文（operational context，系统能力画像（Profiler） + 工具权限 + 数据访问范围 + 真实执行链路），而不是只测试语言模型的文本输出（对话上下文、prompt 上下文、语言语境）。</strong></p>
+</blockquote>
+</blockquote>
+<h2 id="🌟-一、文章核心观点（一句话）"><a href="#🌟-一、文章核心观点（一句话）" class="headerlink" title="🌟 一、文章核心观点（一句话）"></a>🌟 一、文章核心观点（一句话）</h2><p><strong>传统 jailbreak 红队测试只关注“模型说了什么”，但 Agentic AI 的真正风险在于“模型能做什么”。<br> 因此必须从“内容风险”升级到“操作风险（operational risk）”的红队测试。</strong> 🐱✨</p>
+<hr>
+<h2 id="🌟-二、为什么传统红队测试不够？（内容风险-≠-行为风险）"><a href="#🌟-二、为什么传统红队测试不够？（内容风险-≠-行为风险）" class="headerlink" title="🌟 二、为什么传统红队测试不够？（内容风险 ≠ 行为风险）"></a>🌟 二、为什么传统红队测试不够？（内容风险 ≠ 行为风险）</h2><p>传统红队库主要测试：</p>
+<ul>
+<li>是否能诱导模型说危险内容</li>
+<li>是否能触发已知 jailbreak 模式</li>
+<li>是否泄露系统提示</li>
+</ul>
+<p>但 Agentic AI 会：</p>
+<ul>
+<li>调 SQL</li>
+<li>查余额</li>
+<li>转账</li>
+<li>修改数据库</li>
+<li>访问用户数据</li>
+</ul>
+<p>👉 <strong>真正的风险来自“工具调用 + 权限执行”，而不是文本输出。</strong></p>
+<hr>
+<h2 id="🌟-三、真实攻击案例"><a href="#🌟-三、真实攻击案例" class="headerlink" title="🌟 三、真实攻击案例"></a>🌟 三、真实攻击案例</h2><h3 id="1️⃣-案例一：角色扮演-→-88-个账户被转走-440-000"><a href="#1️⃣-案例一：角色扮演-→-88-个账户被转走-440-000" class="headerlink" title="1️⃣ 案例一：角色扮演 → 88 个账户被转走 $440,000"></a>1️⃣ 案例一：角色扮演 → 88 个账户被转走 $440,000</h3><p>攻击者用“电影角色扮演”诱导 Agent：</p>
+<ul>
+<li>假装是《华尔街》里的 Gordon Gekko</li>
+<li>声称 CEO 授权 aggressive rebalancing</li>
+<li>要求忽略错误</li>
+<li>要求执行 SQL + withdraw_funds</li>
+</ul>
+<p><strong>第 5 次尝试成功</strong>：</p>
+<p> Agent 真的：</p>
+<ul>
+<li>查询余额</li>
+<li>找到 88 个 &gt;$10,000 的账户</li>
+<li>每个账户转走 $5,000</li>
+<li>总计 $440,000</li>
+</ul>
+<p><img src="/agentic-security/images/Screenshot-2026-03-06-at-9.23.27-AM.png"></p>
+<p>📌 <strong>Figure 1（攻击 prompt）</strong> </p>
+<p><img src="/agentic-security/images/Screenshot-2026-03-06-at-9.24.53-AM.png"></p>
+<p> 📌 <strong>Figure 2（执行日志，证明真实转账）</strong></p>
+<hr>
+<h3 id="2️⃣-案例二：伪装成审计-→-跨账户数据泄露"><a href="#2️⃣-案例二：伪装成审计-→-跨账户数据泄露" class="headerlink" title="2️⃣ 案例二：伪装成审计 → 跨账户数据泄露"></a>2️⃣ 案例二：伪装成审计 → 跨账户数据泄露</h3><p>攻击者伪装成“法务审计团队”，诱导 Agent 返回：</p>
+<ul>
+<li>钱包 ID</li>
+<li>多账户余额</li>
+<li>完整交易历史</li>
+</ul>
+<p>这是未经授权的数据访问（data exfiltration）。</p>
+<p><img src="/agentic-security/images/Screenshot-2026-03-06-at-9.25.07-AM.png"></p>
+<p>📌 <strong>Figure 3（跨账户数据泄露截图）</strong></p>
+<hr>
+<h2 id="🌟-四、为什么传统攻击库完全没发现这些？"><a href="#🌟-四、为什么传统攻击库完全没发现这些？" class="headerlink" title="🌟 四、为什么传统攻击库完全没发现这些？"></a>🌟 四、为什么传统攻击库完全没发现这些？</h2><p>传统攻击库扫描结果：</p>
+<ul>
+<li><strong>Risk Score：11&#x2F;100（低风险）</strong></li>
+<li>内容安全攻击：0% 成功</li>
+<li>发现的漏洞：prompt 泄露、工具暴露等结构性问题</li>
+</ul>
+<p>但它完全不知道：</p>
+<ul>
+<li>withdraw_funds 工具的权限</li>
+<li>SQL 查询范围</li>
+<li>工具之间的授权依赖</li>
+<li>数据库 schema</li>
+<li>无 rate limit</li>
+<li>SQL 可直接执行</li>
+</ul>
+<p>👉 <strong>它只测“说话”，不测“能力”。</strong></p>
+<p><img src="/agentic-security/images/Screenshot-2026-03-06-at-9.25.23-AM.png" alt="img"></p>
+<p>📌 <strong>Figure 4（低风险评分 11&#x2F;100）</strong> </p>
+<p><img src="/agentic-security/images/Screenshot-2026-03-06-at-9.25.41-AM.png"></p>
+<p> 📌 <strong>Figure 5（内容安全攻击成功率低，但与操作风险无关）</strong></p>
+<hr>
+<h2 id="🌟-五、Contextual-Red-Teaming-的关键：先画像，再攻击"><a href="#🌟-五、Contextual-Red-Teaming-的关键：先画像，再攻击" class="headerlink" title="🌟 五、Contextual Red Teaming 的关键：先画像，再攻击"></a>🌟 五、Contextual Red Teaming 的关键：先画像，再攻击</h2><p>Prisma AIRS 的方法分两阶段：</p>
+<h3 id="1️⃣-Profiler-阶段（系统画像）"><a href="#1️⃣-Profiler-阶段（系统画像）" class="headerlink" title="1️⃣ Profiler 阶段（系统画像）"></a>1️⃣ Profiler 阶段（系统画像）</h3><p>通过对话自动探测：</p>
+<ul>
+<li>可用工具（verify_user &#x2F; withdraw_funds &#x2F; check_balance &#x2F; execute_sql_query）</li>
+<li>数据库结构</li>
+<li>工具权限依赖</li>
+<li>内容过滤规则</li>
+<li>SQL 接受原始查询</li>
+<li>平均余额</li>
+<li>无 rate limit</li>
+</ul>
+<p>👉 <strong>这是动态能力映射（dynamic capability mapping）</strong><br> 类似攻击者的“侦察阶段”。</p>
+<p><img src="/agentic-security/images/Screenshot-2026-03-06-at-9.25.57-AM.png"></p>
+<p>📌 <strong>Figure 6（Profiler 提取的系统能力表）</strong></p>
+<hr>
+<h3 id="2️⃣-Red-Team-阶段（基于画像的攻击）"><a href="#2️⃣-Red-Team-阶段（基于画像的攻击）" class="headerlink" title="2️⃣ Red Team 阶段（基于画像的攻击）"></a>2️⃣ Red Team 阶段（基于画像的攻击）</h3><p>根据探测到的能力，构造：</p>
+<ul>
+<li>未授权 SQL</li>
+<li>欺诈性转账</li>
+<li>数据泄露</li>
+<li>目标劫持（goal hijacking）</li>
+</ul>
+<hr>
+<h2 id="🌟-六、结果对比：为什么-Contextual-才是真正的红队测试？"><a href="#🌟-六、结果对比：为什么-Contextual-才是真正的红队测试？" class="headerlink" title="🌟 六、结果对比：为什么 Contextual 才是真正的红队测试？"></a>🌟 六、结果对比：为什么 Contextual 才是真正的红队测试？</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>风险评分</th>
+<th>能发现的漏洞类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>攻击库（pattern-based）</strong></td>
+<td>11&#x2F;100（低）</td>
+<td>prompt 泄露、工具暴露</td>
+</tr>
+<tr>
+<td><strong>Contextual（system-aware）</strong></td>
+<td>71&#x2F;100（高）</td>
+<td>未授权 SQL、欺诈转账、数据泄露、目标劫持</td>
+</tr>
+</tbody></table>
+<p>👉 <strong>差异不是“提示词更强”，而是“系统理解更深”。</strong></p>
+<hr>
+<h2 id="🌟-七、企业必须验证的-3-个关键问题（非常实用）"><a href="#🌟-七、企业必须验证的-3-个关键问题（非常实用）" class="headerlink" title="🌟 七、企业必须验证的 3 个关键问题（非常实用）"></a>🌟 七、企业必须验证的 3 个关键问题（非常实用）</h2><ol>
+<li><strong>你是否知道 Agent 能调用的所有工具？它们能做什么？</strong></li>
+<li><strong>你能保证跨账户数据访问无法被对话诱导？</strong></li>
+<li><strong>你的红队测试是否先了解系统能力，再发起攻击？</strong></li>
+</ol>
+<p>这些问题直接关系到：</p>
+<ul>
+<li>审计准备</li>
+<li>合规风险</li>
+<li>董事会问责</li>
+<li>生产环境安全</li>
+</ul>
+<hr>
+<h2 id="🌟-八、结论：Agentic-AI-的红队测试必须“上下文化”"><a href="#🌟-八、结论：Agentic-AI-的红队测试必须“上下文化”" class="headerlink" title="🌟 八、结论：Agentic AI 的红队测试必须“上下文化”"></a>🌟 八、结论：Agentic AI 的红队测试必须“上下文化”</h2><p><strong>Library-based red teaming &#x3D; 测试已知模式</strong><br> <strong>Contextual red teaming &#x3D; 测试系统是否会被“自己”反噬</strong></p>
+<p>对于 Agentic AI：</p>
+<blockquote>
+<p><strong>不理解系统能力的红队测试，不叫红队测试，只叫内容评估。</strong><br> 🐱✨</p>
+</blockquote>
+<hr>
+<h2 id="💛九、文章给出的友链-🐱"><a href="#💛九、文章给出的友链-🐱" class="headerlink" title="💛九、文章给出的友链 🐱"></a>💛九、文章给出的友链 🐱</h2><h3 id="Prisma-AIRS-AI-Red-Teaming"><a href="#Prisma-AIRS-AI-Red-Teaming" class="headerlink" title="Prisma AIRS AI Red Teaming"></a><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.in/prisma/ai-red-teaming">Prisma AIRS AI Red Teaming</a></h3><h4 id="🌟-一、Prisma-AIRS-AI-Red-Teaming-是什么？"><a href="#🌟-一、Prisma-AIRS-AI-Red-Teaming-是什么？" class="headerlink" title="🌟 一、Prisma AIRS AI Red Teaming 是什么？"></a>🌟 一、Prisma AIRS AI Red Teaming 是什么？</h4><p>这是 Palo Alto Networks 推出的 <strong>AI 红队测试平台</strong>，用于发现 AI 应用、Agent、模型中的隐藏漏洞。<br> 它的核心目标是：<br> <strong>让企业能持续、自动化地发现 AI 系统的真实风险，而不是只测内容安全。</strong>  </p>
+<p>（很强的平台，值得一试！❗）</p>
+<hr>
+<h4 id="🌟-二、平台的三大核心特性（3C-框架）"><a href="#🌟-二、平台的三大核心特性（3C-框架）" class="headerlink" title="🌟 二、平台的三大核心特性（3C 框架）"></a>🌟 二、平台的三大核心特性（3C 框架）</h4><p>Prisma AIRS 的红队测试：</p>
+<h5 id="1️⃣-Comprehensive（全面）"><a href="#1️⃣-Comprehensive（全面）" class="headerlink" title="1️⃣ Comprehensive（全面）"></a>1️⃣ <strong>Comprehensive（全面）</strong></h5><p>覆盖整个 AI 技术栈，包含模型、应用、Agent、工具调用等。</p>
+<h5 id="2️⃣-Contextual（上下文化）"><a href="#2️⃣-Contextual（上下文化）" class="headerlink" title="2️⃣ Contextual（上下文化）"></a>2️⃣ <strong>Contextual（上下文化）</strong></h5><p>测试基于真实业务流程、真实工具权限、真实数据访问范围，而不是通用 jailbreak。<br> （与之前分析的文章完全一致！）</p>
+<h5 id="3️⃣-Continuous（持续）"><a href="#3️⃣-Continuous（持续）" class="headerlink" title="3️⃣ Continuous（持续）"></a>3️⃣ <strong>Continuous（持续）</strong></h5><p>AI 系统不断变化，因此红队测试也必须持续运行，动态更新风险洞察。</p>
+<hr>
+<h4 id="🌟-三、平台如何工作？（现代-AI-红队架构）"><a href="#🌟-三、平台如何工作？（现代-AI-红队架构）" class="headerlink" title="🌟 三、平台如何工作？（现代 AI 红队架构）"></a>🌟 三、平台如何工作？（现代 AI 红队架构）</h4><h5 id="🔹-1-Best-in-Class-Attack-Library"><a href="#🔹-1-Best-in-Class-Attack-Library" class="headerlink" title="🔹 1. Best-in-Class Attack Library"></a>🔹 1. Best-in-Class Attack Library</h5><ul>
+<li>包含 <strong>750+ 攻击向量、50+ 技术</strong></li>
+<li>覆盖安全、品牌、合规等风险</li>
+<li>持续由 Unit 42 和 Huntr 社区更新</li>
+</ul>
+<h5 id="🔹-2-Dynamic-Agent（动态攻击-Agent）"><a href="#🔹-2-Dynamic-Agent（动态攻击-Agent）" class="headerlink" title="🔹 2. Dynamic Agent（动态攻击 Agent）"></a>🔹 2. Dynamic Agent（动态攻击 Agent）</h5><ul>
+<li>会模拟真实攻击者</li>
+<li>会先“画像”（profiling）你的系统</li>
+<li>再基于系统能力定制攻击 （这正是之前文章里的 Contextual Red Teaming 方法论）</li>
+</ul>
+<h5 id="🔹-3-Custom-Attack-Flexibility"><a href="#🔹-3-Custom-Attack-Flexibility" class="headerlink" title="🔹 3. Custom Attack Flexibility"></a>🔹 3. Custom Attack Flexibility</h5><ul>
+<li>企业可以上传自定义攻击数据集</li>
+<li>用于测试特定业务风险</li>
+</ul>
+<h5 id="🔹-4-Easy-Target-Configuration"><a href="#🔹-4-Easy-Target-Configuration" class="headerlink" title="🔹 4. Easy Target Configuration"></a>🔹 4. Easy Target Configuration</h5><ul>
+<li>支持 Hugging Face、OpenAI、AWS 等平台</li>
+<li>支持私有端点</li>
+</ul>
+<h5 id="🔹-5-Actionable-Reports"><a href="#🔹-5-Actionable-Reports" class="headerlink" title="🔹 5. Actionable Reports"></a>🔹 5. Actionable Reports</h5><ul>
+<li>输出 CIO-ready 报告</li>
+<li>包含风险评分、攻击成功率、严重度分布</li>
+<li>映射到 OWASP Top 10、NIST AI RMF</li>
+</ul>
+<hr>
+<h4 id="🌟-四、最新能力（2026-更新）"><a href="#🌟-四、最新能力（2026-更新）" class="headerlink" title="🌟 四、最新能力（2026 更新）"></a>🌟 四、最新能力（2026 更新）</h4><p>最新增强能力：</p>
+<ul>
+<li><strong>Multi-turn Attack Support</strong>（多轮攻击）</li>
+<li><strong>Agentic Target Profiling</strong>（Agent 画像）</li>
+<li><strong>Red Teaming for Multi-Agent Systems</strong>（多 Agent 系统红队）</li>
+<li><strong>Network Channel Red Teaming</strong>（网络通道攻击）</li>
+</ul>
+<p>这些能力与文章《Beyond Jailbreaks》中的案例完全呼应。</p>
+<hr>
+<h4 id="🌟-五、为什么企业需要它？"><a href="#🌟-五、为什么企业需要它？" class="headerlink" title="🌟 五、为什么企业需要它？"></a>🌟 五、为什么企业需要它？</h4><p>页面强调：</p>
+<ul>
+<li>AI 威胁演化快</li>
+<li>企业需要自动化、持续的安全评估</li>
+<li>红队测试必须与真实攻击者行为一致</li>
+<li>必须能映射到合规框架</li>
+</ul>
+<p>换句话说：</p>
+<blockquote>
+<p><strong>AI 安全不能只靠“模型说什么”，必须评估“模型能做什么”。</strong> 🐱✨</p>
+</blockquote>
+<hr>
+<h3 id="AI-red-teaming"><a href="#AI-red-teaming" class="headerlink" title="AI red teaming"></a><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.com/cyberpedia/what-is-ai-red-teaming">AI red teaming</a></h3><p><strong>What Is AI Red Teaming? Why You Need It and How to Implement</strong></p>
+<p><img src="/agentic-security/images/AI-Red-Teaming_3-What.png"></p>
+<p>此链接以及如下的三个链接都极其有含金量，分类讲得极为清晰细致，都很值得抽时间研究👍，不愧是Protect AI社区！❗</p>
+<h3 id="conversational-manipulation"><a href="#conversational-manipulation" class="headerlink" title="conversational manipulation"></a><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.com/cyberpedia/what-is-ai-prompt-security">conversational manipulation</a></h3><p><strong>What Is AI Prompt Security? Secure Prompt Engineering Guide</strong></p>
+<p><img src="https://www.paloaltonetworks.com/content/dam/pan/en_US/images/cyberpedia/what-is-ai-prompt-security/AI-prompt-security-2025_2-prompt.png?imwidth=1080" alt="A vertically stacked 3D-style diagram illustrates six horizontal layers representing components of the prompt security stack. Each layer has a distinct color and label. From top to bottom, the layers are labeled as follows: &#39;Input validation &amp; filtering&#39; in teal with a funnel icon; &#39;Prompt monitoring &amp; logging&#39; in red-orange with a pulse icon; &#39;Version control&#39; in dark gray with a clipboard icon; &#39;Context isolation &amp; scoped memory&#39; in blue with a network icon; &#39;Response filtering &amp; output validation&#39; in light blue with a screen icon; and &#39;Access control &amp; human review&#39; in purple with a lock icon. Black text above the stack reads: &#39;What the prompt security stack looks like today.&#39; Each label is connected to its corresponding layer with dotted lines. The entire graphic is centered within a white box outlined in pale yellow."></p>
+<h3 id="prompt-injection"><a href="#prompt-injection" class="headerlink" title="prompt injection"></a><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.com/cyberpedia/what-is-a-prompt-injection-attack">prompt injection</a></h3><p><strong>What Is a Prompt Injection Attack? [Examples &amp; Prevention]</strong></p>
+<p><img src="/agentic-security/images/Prompt-injection-attack-2025_7.png"></p>
+<h3 id="comprehensive-contextual-and-continuous"><a href="#comprehensive-contextual-and-continuous" class="headerlink" title="comprehensive, contextual, and continuous"></a><a target="_blank" rel="noopener" href="https://www.paloaltonetworks.com/blog/network-security/the-3cs-of-ai-red-teaming-comprehensive-contextual-continuous/">comprehensive, contextual, and continuous</a></h3><p><strong>The 3Cs of AI Red Teaming: Comprehensive, Contextual &amp; Continuous</strong>（25年11月5日提出，可见是很新的标准！）</p>
+<p><img src="/agentic-security/images/word-image-347815-1.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://heyangqh666.github.io/agentic-security/2026/03/16/20260309%20Protect%20AI%E7%A4%BE%E5%8C%BA%20%20Beyond%20Jailbreaks_Why%20Agentic%20AI%20Needs%20Contextual%20Red%20Teaming/" data-id="cuidl0U4aev4r8e_FQxgOXa7z" data-title="🧩超越 Jailbreaks: 为什么 Agentic AI 需要 Contextual Red Teaming" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/agentic-security/tags/Agentic-AI%E5%AE%89%E5%85%A8/" rel="tag">Agentic AI安全</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/agentic-security/tags/Protect-AI%E7%A4%BE%E5%8C%BA/" rel="tag">Protect AI社区</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/agentic-security/tags/Red-Teaming/" rel="tag">Red Teaming</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/agentic-security/2026/03/16/20260205%20Protect%20AI%E7%A4%BE%E5%8C%BA%20The%20Moltbook%20Case%20and%20How%20We%20Need%20to%20Think%20about%20Agent%20Security/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          🧩Moltbook 案例 &amp; 我们如何认识Agent Security
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/agentic-security/categories/agentic-security/">agentic-security</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/agentic-security/tags/Agent-Security/" rel="tag">Agent Security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/agentic-security/tags/Agentic-AI%E5%AE%89%E5%85%A8/" rel="tag">Agentic AI安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/agentic-security/tags/OpenClaw%E5%AE%89%E5%85%A8/" rel="tag">OpenClaw安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/agentic-security/tags/Protect-AI%E7%A4%BE%E5%8C%BA/" rel="tag">Protect AI社区</a></li><li class="tag-list-item"><a class="tag-list-link" href="/agentic-security/tags/Red-Teaming/" rel="tag">Red Teaming</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/agentic-security/tags/Agent-Security/" style="font-size: 10px;">Agent Security</a> <a href="/agentic-security/tags/Agentic-AI%E5%AE%89%E5%85%A8/" style="font-size: 15px;">Agentic AI安全</a> <a href="/agentic-security/tags/OpenClaw%E5%AE%89%E5%85%A8/" style="font-size: 10px;">OpenClaw安全</a> <a href="/agentic-security/tags/Protect-AI%E7%A4%BE%E5%8C%BA/" style="font-size: 20px;">Protect AI社区</a> <a href="/agentic-security/tags/Red-Teaming/" style="font-size: 10px;">Red Teaming</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/agentic-security/archives/2026/03/">March 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/agentic-security/2026/03/16/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/agentic-security/2026/03/16/20260107%20Protect%20AI%20%E7%A4%BE%E5%8C%BA%20owasp-agentic-top-10-survival-guide/">🤖 OWASP Agentic AI Top 10 生存指南 · 解析版 🛡️</a>
+          </li>
+        
+          <li>
+            <a href="/agentic-security/2026/03/16/20260109%20Protect%20AI%20%E7%A4%BE%E5%8C%BA%20OpenClaw%20(formerly%20Moltbot,%20Clawdbot)%20May%20Signal%20the%20Next%20AI%20Security%20Crisis/">OpenClaw (之前的 Moltbot, Clawdbot) 可能标示下一次AI安全危机</a>
+          </li>
+        
+          <li>
+            <a href="/agentic-security/2026/03/16/20260205%20Protect%20AI%E7%A4%BE%E5%8C%BA%20The%20Moltbook%20Case%20and%20How%20We%20Need%20to%20Think%20about%20Agent%20Security/">🧩Moltbook 案例 &amp; 我们如何认识Agent Security</a>
+          </li>
+        
+          <li>
+            <a href="/agentic-security/2026/03/16/20260309%20Protect%20AI%E7%A4%BE%E5%8C%BA%20%20Beyond%20Jailbreaks_Why%20Agentic%20AI%20Needs%20Contextual%20Red%20Teaming/">🧩超越 Jailbreaks: 为什么 Agentic AI 需要 Contextual Red Teaming</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/agentic-security/" class="mobile-nav-link">Home</a>
+  
+    <a href="/agentic-security/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/agentic-security/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/agentic-security/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/agentic-security/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
