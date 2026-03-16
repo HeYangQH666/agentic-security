@@ -1,0 +1,14 @@
+/* Hexo 默认主题 landscape 用 .article-entry */
+.article-entry img {
+    max-width: 50%;  /* 改成 50% 或 40%，看你想要多小 */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 排除表情图标 */
+.article-entry img.emoji {
+    max-width: none;
+    display: inline;
+    margin: 0;
+}

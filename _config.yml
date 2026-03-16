@@ -62,3 +62,6 @@ theme: landscape
 deploy:
   type: ''
 root: /agentic-security/
+inject:
+  head:
+    - <link rel="stylesheet" href="/agentic-security/css/custom.css">
