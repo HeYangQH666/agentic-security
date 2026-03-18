@@ -1,14 +1,70 @@
-/* Hexo 默认主题 landscape 用 .article-entry */
+/* ========== 图片样式：限制大小、居中、加阴影 ========== */
 .article-entry img {
-    max-width: 50%;  /* 改成 50% 或 40%，看你想要多小 */
+    max-width: 600px;        /* 最大宽度 600px，防止太大 */
+    width: 100%;             /* 小屏幕自适应 */
     height: auto;
     display: block;
-    margin: 0 auto;
+    margin: 20px auto;       /* 上下留白，左右居中 */
+    border-radius: 8px;      /* 圆角 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);  /* 轻微阴影 */
 }
 
-/* 排除表情图标 */
+/* 表情符号不应用上述样式 */
 .article-entry img.emoji {
     max-width: none;
     display: inline;
     margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+/* ========== 表格样式：美化 ========== */
+.article-entry table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* 表头样式 */
+.article-entry table thead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.article-entry table th {
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    border: none;
+}
+
+/* 表格内容 */
+.article-entry table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e0e0e0;
+    border-right: 1px solid #f0f0f0;
+}
+
+.article-entry table td:last-child {
+    border-right: none;
+}
+
+/* 斑马纹效果（隔行变色） */
+.article-entry table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* 鼠标悬停效果 */
+.article-entry table tbody tr:hover {
+    background-color: #e3f2fd;
+    transition: background-color 0.3s;
+}
+
+/* 表格边框 */
+.article-entry table {
+    border: 1px solid #ddd;
 }
